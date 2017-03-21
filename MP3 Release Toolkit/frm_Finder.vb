@@ -10,6 +10,9 @@ Public Class frm_Finder
                 btn_mis_sfv.Enabled = True
                 btn_mis_nfo.Enabled = True
                 btn_find_renames.Enabled = True
+                btn_2x_m3u.Enabled = True
+                btn_2x_nfo.Enabled = True
+                btn_2x_sfv.Enabled = True
             End If
         End Using
     End Sub
