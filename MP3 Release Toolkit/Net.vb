@@ -5,11 +5,11 @@
         Threading.Thread.Sleep(3000)
         Dim p As New Process()
         Dim workdir As String = My.Application.Info.DirectoryPath & "\wget.exe"
-        System.IO.File.WriteAllBytes(workdir, My.Resources.wget)
-        System.IO.File.WriteAllBytes(workdir, My.Resources.libintl3)
-        System.IO.File.WriteAllBytes(workdir, My.Resources.libiconv2)
-        System.IO.File.WriteAllBytes(workdir, My.Resources.libeay32)
-        System.IO.File.WriteAllBytes(workdir, My.Resources.libssl32)
+        System.IO.File.WriteAllBytes(My.Application.Info.DirectoryPath & "\wget.exe", My.Resources.wget)
+        System.IO.File.WriteAllBytes(My.Application.Info.DirectoryPath & "\libintl.dll", My.Resources.libintl3)
+        System.IO.File.WriteAllBytes(My.Application.Info.DirectoryPath & "\libiconv2.dll", My.Resources.libiconv2)
+        System.IO.File.WriteAllBytes(My.Application.Info.DirectoryPath & "\libeay32.dll", My.Resources.libeay32)
+        System.IO.File.WriteAllBytes(My.Application.Info.DirectoryPath & "\libssl32.dll", My.Resources.libssl32)
         p.StartInfo.FileName = workdir
         Dim cmdline2 As String = "--no-check-certificate https://www.srrdb.com/download/srr/" & FolderName & "/" & FolderName & ".srr"
 
