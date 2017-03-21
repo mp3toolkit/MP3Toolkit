@@ -192,6 +192,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\wget.exe" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\libeay32.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\libiconv2.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\libintl3.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\libssl32.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

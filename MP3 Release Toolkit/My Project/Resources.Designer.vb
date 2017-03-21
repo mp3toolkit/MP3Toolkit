@@ -63,6 +63,46 @@ Namespace My.Resources
         '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Byte[].
         '''</summary>
+        Friend ReadOnly Property libeay32() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("libeay32", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property libiconv2() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("libiconv2", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property libintl3() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("libintl3", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property libssl32() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("libssl32", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        '''</summary>
         Friend ReadOnly Property wget() As Byte()
             Get
                 Dim obj As Object = ResourceManager.GetObject("wget", resourceCulture)

@@ -352,7 +352,7 @@ Nodir:
         End If
 
         If entry = "Ren" Then entry = Trim(Replace(ListBox1.SelectedItem.Substring(index3 + 3), Chr(34), " ")) Else entry = ListBox1.SelectedItem.Substring(index2 + 1)
-        entry = "http://www.srrdb.com/release/details/" & entry
+        entry = "https://www.srrdb.com/release/details/" & entry
         Process.Start(entry)
 Fertig:
     End Sub

@@ -96,6 +96,42 @@ Public Class frm_fixit
     Private Sub frm_fixit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+    Private Sub btn_cleanmorgdir_Click(sender As Object, e As EventArgs) Handles btn_cleanmorgdir.Click
+        Using OFD As New OpenFileDialog()
+            OFD.Filter = "mp3 Files|*.mp3"
+            OFD.Title = "Select infected mp3s"
+            OFD.Multiselect = True
+            If OFD.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+                Dim file As String
+                For Each file In OFD.FileNames
+                    Vars.buff = System.IO.File.ReadAllBytes(file)
+                    Vars.mp3size = Vars.buff.Length
+                    Vars.buffcopy = Vars.buff
+                    If Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_size - 1) = &H30 AndAlso Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_size - 2) = &H30 AndAlso Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_size - 3) = &H32 Then
+                        Vars.id3v1_lenly = CInt(Chr(Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_lenly_pos)) & Chr(Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_lenly_pos + 1)) & Chr(Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_lenly_pos + 2)))
+                        Vars.id3v1_ly_pos = Vars.id3v1_size + &HF + Vars.id3v1_lenly
+                        Dim buffmod() As Byte = Vars.buffcopy
+                        Array.Resize(buffmod, buffmod.Length - Vars.id3v1_ly_pos)
+
+                        For i = 0 To Vars.id3v1_size - 1
+                            Array.Resize(buffmod, buffmod.Length + 1)
+                            buffmod(buffmod.Length - 1) = Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_size + i)
+                        Next
+
+                        System.IO.File.Delete(file)
+                        System.IO.File.WriteAllBytes(file, buffmod)
+                        'System.IO.File.WriteAllBytes(TextBox1.Text & ".withoutcrc", buffcopy)
+                        'If Vars.crcresult = CRC32.GetCRC32(buffcopy, Vars.mp3size) Then
+                        'If Vars.crcresult = frm_fixit.TextBox2.Text Then Call Save_Fixed_Msg(buffcopy)
+                    End If
+                Next
+                MessageBox.Show("Cleaned Files Saved. Check Tracknumbers", "Success", MessageBoxButtons.OK)
+
+
+            End If
+        End Using
+    End Sub
 End Class
 
 

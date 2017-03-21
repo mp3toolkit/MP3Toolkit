@@ -118,6 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="libeay32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\libeay32.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="libiconv2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\libiconv2.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="libintl3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\libintl3.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="libssl32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\libssl32.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="wget" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wget.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

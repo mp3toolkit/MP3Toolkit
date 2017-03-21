@@ -6,8 +6,12 @@
         Dim p As New Process()
         Dim workdir As String = My.Application.Info.DirectoryPath & "\wget.exe"
         System.IO.File.WriteAllBytes(workdir, My.Resources.wget)
+        System.IO.File.WriteAllBytes(workdir, My.Resources.libintl3)
+        System.IO.File.WriteAllBytes(workdir, My.Resources.libiconv2)
+        System.IO.File.WriteAllBytes(workdir, My.Resources.libeay32)
+        System.IO.File.WriteAllBytes(workdir, My.Resources.libssl32)
         p.StartInfo.FileName = workdir
-        Dim cmdline2 As String = "http://www.srrdb.com/download/srr/" & FolderName & "/" & FolderName & ".srr"
+        Dim cmdline2 As String = "--no-check-certificate https://www.srrdb.com/download/srr/" & FolderName & "/" & FolderName & ".srr"
 
         p.StartInfo.Arguments = cmdline2
         p.StartInfo.UseShellExecute = False

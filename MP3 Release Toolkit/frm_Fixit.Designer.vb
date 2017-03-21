@@ -42,6 +42,7 @@ Partial Class frm_fixit
         Me.Srrdb = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Fixer = New System.Windows.Forms.ToolStripButton()
+        Me.btn_cleanmorgdir = New System.Windows.Forms.Button()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -188,11 +189,21 @@ Partial Class frm_fixit
         Me.Fixer.Size = New System.Drawing.Size(58, 22)
         Me.Fixer.Text = "MP3 Fixer"
         '
+        'btn_cleanmorgdir
+        '
+        Me.btn_cleanmorgdir.Location = New System.Drawing.Point(366, 128)
+        Me.btn_cleanmorgdir.Name = "btn_cleanmorgdir"
+        Me.btn_cleanmorgdir.Size = New System.Drawing.Size(181, 23)
+        Me.btn_cleanmorgdir.TabIndex = 26
+        Me.btn_cleanmorgdir.Text = "Clean Dir of Morgs Vaccinator"
+        Me.btn_cleanmorgdir.UseVisualStyleBackColor = True
+        '
         'frm_fixit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(559, 142)
+        Me.ClientSize = New System.Drawing.Size(559, 163)
+        Me.Controls.Add(Me.btn_cleanmorgdir)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Label3)
@@ -235,4 +246,5 @@ Partial Class frm_fixit
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents Srrdb As ToolStripButton
     Friend WithEvents Fixer As ToolStripButton
+    Friend WithEvents btn_cleanmorgdir As Button
 End Class
