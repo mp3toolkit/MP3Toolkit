@@ -43,6 +43,9 @@ Partial Class frm_Finder
         Me.Srrdb = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Fixer = New System.Windows.Forms.ToolStripButton()
+        Me.btn_2x_nfo = New System.Windows.Forms.Button()
+        Me.btn_2x_sfv = New System.Windows.Forms.Button()
+        Me.btn_2x_m3u = New System.Windows.Forms.Button()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -109,7 +112,7 @@ Partial Class frm_Finder
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.Location = New System.Drawing.Point(247, 167)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(984, 212)
+        Me.ListBox1.Size = New System.Drawing.Size(984, 381)
         Me.ListBox1.TabIndex = 17
         '
         'Label1
@@ -152,7 +155,7 @@ Partial Class frm_Finder
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(193, 48)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(193, 26)
         '
         'ToolStripMenuItem1
         '
@@ -206,11 +209,44 @@ Partial Class frm_Finder
         Me.Fixer.Size = New System.Drawing.Size(58, 22)
         Me.Fixer.Text = "MP3 Fixer"
         '
+        'btn_2x_nfo
+        '
+        Me.btn_2x_nfo.Enabled = False
+        Me.btn_2x_nfo.Location = New System.Drawing.Point(15, 400)
+        Me.btn_2x_nfo.Name = "btn_2x_nfo"
+        Me.btn_2x_nfo.Size = New System.Drawing.Size(206, 37)
+        Me.btn_2x_nfo.TabIndex = 27
+        Me.btn_2x_nfo.Text = "Find multiple *.nfo"
+        Me.btn_2x_nfo.UseVisualStyleBackColor = True
+        '
+        'btn_2x_sfv
+        '
+        Me.btn_2x_sfv.Enabled = False
+        Me.btn_2x_sfv.Location = New System.Drawing.Point(15, 458)
+        Me.btn_2x_sfv.Name = "btn_2x_sfv"
+        Me.btn_2x_sfv.Size = New System.Drawing.Size(206, 37)
+        Me.btn_2x_sfv.TabIndex = 28
+        Me.btn_2x_sfv.Text = "Find multiple *.sfv"
+        Me.btn_2x_sfv.UseVisualStyleBackColor = True
+        '
+        'btn_2x_m3u
+        '
+        Me.btn_2x_m3u.Enabled = False
+        Me.btn_2x_m3u.Location = New System.Drawing.Point(12, 518)
+        Me.btn_2x_m3u.Name = "btn_2x_m3u"
+        Me.btn_2x_m3u.Size = New System.Drawing.Size(206, 37)
+        Me.btn_2x_m3u.TabIndex = 29
+        Me.btn_2x_m3u.Text = "Find multiple *.m3u"
+        Me.btn_2x_m3u.UseVisualStyleBackColor = True
+        '
         'frm_Finder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1254, 543)
+        Me.ClientSize = New System.Drawing.Size(1254, 567)
+        Me.Controls.Add(Me.btn_2x_m3u)
+        Me.Controls.Add(Me.btn_2x_sfv)
+        Me.Controls.Add(Me.btn_2x_nfo)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.btn_find_renames)
         Me.Controls.Add(Me.btn_mis_nfo)
@@ -256,4 +292,7 @@ Partial Class frm_Finder
     Friend WithEvents Srrdb As ToolStripButton
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents Fixer As ToolStripButton
+    Friend WithEvents btn_2x_nfo As Button
+    Friend WithEvents btn_2x_sfv As Button
+    Friend WithEvents btn_2x_m3u As Button
 End Class
