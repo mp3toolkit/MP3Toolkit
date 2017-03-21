@@ -132,6 +132,25 @@ Public Class frm_fixit
             End If
         End Using
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Using OFD As New OpenFileDialog()
+            OFD.Filter = "mp3 Files|*.mp3"
+            OFD.Title = "Select infected mp3s"
+            OFD.Multiselect = True
+            If OFD.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+                Dim file As String
+                For Each file In OFD.FileNames
+                    Vars.buff = System.IO.File.ReadAllBytes(file)
+                    Vars.mp3size = Vars.buff.Length
+                    Vars.buff(Vars.mp3size - TextBox1.Text) = TextBox3.Text
+                    System.IO.File.Delete(file)
+                    System.IO.File.WriteAllBytes(file, Vars.buff)
+                Next
+            End If
+        End Using
+
+    End Sub
 End Class
 
 
