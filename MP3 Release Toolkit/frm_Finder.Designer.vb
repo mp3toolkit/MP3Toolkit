@@ -37,6 +37,7 @@ Partial Class frm_Finder
         Me.btn_mp3_root_dir = New System.Windows.Forms.Button()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Finder = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -46,13 +47,14 @@ Partial Class frm_Finder
         Me.btn_2x_nfo = New System.Windows.Forms.Button()
         Me.btn_2x_sfv = New System.Windows.Forms.Button()
         Me.btn_2x_m3u = New System.Windows.Forms.Button()
+        Me.info_listbox = New System.Windows.Forms.Label()
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btn_find_renames
         '
-        Me.btn_find_renames.Enabled = False
         Me.btn_find_renames.Location = New System.Drawing.Point(15, 342)
         Me.btn_find_renames.Name = "btn_find_renames"
         Me.btn_find_renames.Size = New System.Drawing.Size(206, 37)
@@ -62,7 +64,6 @@ Partial Class frm_Finder
         '
         'btn_mis_nfo
         '
-        Me.btn_mis_nfo.Enabled = False
         Me.btn_mis_nfo.Location = New System.Drawing.Point(15, 284)
         Me.btn_mis_nfo.Name = "btn_mis_nfo"
         Me.btn_mis_nfo.Size = New System.Drawing.Size(206, 37)
@@ -89,7 +90,6 @@ Partial Class frm_Finder
         '
         'btn_mis_sfv
         '
-        Me.btn_mis_sfv.Enabled = False
         Me.btn_mis_sfv.Location = New System.Drawing.Point(15, 226)
         Me.btn_mis_sfv.Name = "btn_mis_sfv"
         Me.btn_mis_sfv.Size = New System.Drawing.Size(206, 37)
@@ -99,7 +99,6 @@ Partial Class frm_Finder
         '
         'btn_mis_m3u
         '
-        Me.btn_mis_m3u.Enabled = False
         Me.btn_mis_m3u.Location = New System.Drawing.Point(15, 167)
         Me.btn_mis_m3u.Name = "btn_mis_m3u"
         Me.btn_mis_m3u.Size = New System.Drawing.Size(206, 37)
@@ -110,9 +109,9 @@ Partial Class frm_Finder
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(247, 167)
+        Me.ListBox1.Location = New System.Drawing.Point(247, 193)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(984, 381)
+        Me.ListBox1.Size = New System.Drawing.Size(984, 355)
         Me.ListBox1.TabIndex = 17
         '
         'Label1
@@ -126,7 +125,6 @@ Partial Class frm_Finder
         '
         'btn_result_dir
         '
-        Me.btn_result_dir.Enabled = False
         Me.btn_result_dir.Location = New System.Drawing.Point(15, 105)
         Me.btn_result_dir.Name = "btn_result_dir"
         Me.btn_result_dir.Size = New System.Drawing.Size(206, 37)
@@ -153,15 +151,21 @@ Partial Class frm_Finder
         '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.ToolStripMenuItem2, Me.ToolStripMenuItem3})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(193, 26)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(217, 92)
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(192, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(216, 22)
         Me.ToolStripMenuItem1.Text = "Get Details on srrdb.com"
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(216, 22)
+        Me.ToolStripMenuItem2.Text = "Open Dir in Windows Explorer"
         '
         'ToolStrip1
         '
@@ -211,7 +215,6 @@ Partial Class frm_Finder
         '
         'btn_2x_nfo
         '
-        Me.btn_2x_nfo.Enabled = False
         Me.btn_2x_nfo.Location = New System.Drawing.Point(15, 400)
         Me.btn_2x_nfo.Name = "btn_2x_nfo"
         Me.btn_2x_nfo.Size = New System.Drawing.Size(206, 37)
@@ -221,7 +224,6 @@ Partial Class frm_Finder
         '
         'btn_2x_sfv
         '
-        Me.btn_2x_sfv.Enabled = False
         Me.btn_2x_sfv.Location = New System.Drawing.Point(15, 458)
         Me.btn_2x_sfv.Name = "btn_2x_sfv"
         Me.btn_2x_sfv.Size = New System.Drawing.Size(206, 37)
@@ -231,7 +233,6 @@ Partial Class frm_Finder
         '
         'btn_2x_m3u
         '
-        Me.btn_2x_m3u.Enabled = False
         Me.btn_2x_m3u.Location = New System.Drawing.Point(12, 518)
         Me.btn_2x_m3u.Name = "btn_2x_m3u"
         Me.btn_2x_m3u.Size = New System.Drawing.Size(206, 37)
@@ -239,11 +240,28 @@ Partial Class frm_Finder
         Me.btn_2x_m3u.Text = "Find multiple *.m3u"
         Me.btn_2x_m3u.UseVisualStyleBackColor = True
         '
+        'info_listbox
+        '
+        Me.info_listbox.AutoSize = True
+        Me.info_listbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.info_listbox.Location = New System.Drawing.Point(244, 167)
+        Me.info_listbox.Name = "info_listbox"
+        Me.info_listbox.Size = New System.Drawing.Size(47, 13)
+        Me.info_listbox.TabIndex = 30
+        Me.info_listbox.Text = "Status:"
+        '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(216, 22)
+        Me.ToolStripMenuItem3.Text = "Send to RekSFV"
+        '
         'frm_Finder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1254, 567)
+        Me.Controls.Add(Me.info_listbox)
         Me.Controls.Add(Me.btn_2x_m3u)
         Me.Controls.Add(Me.btn_2x_sfv)
         Me.Controls.Add(Me.btn_2x_nfo)
@@ -295,4 +313,7 @@ Partial Class frm_Finder
     Friend WithEvents btn_2x_nfo As Button
     Friend WithEvents btn_2x_sfv As Button
     Friend WithEvents btn_2x_m3u As Button
+    Friend WithEvents info_listbox As Label
+    Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
 End Class

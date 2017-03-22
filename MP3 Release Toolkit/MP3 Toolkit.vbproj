@@ -150,6 +150,7 @@
   <ItemGroup>
     <EmbeddedResource Include="frm_Finder.resx">
       <DependentUpon>frm_Finder.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Fixit.resx">
       <DependentUpon>frm_Fixit.vb</DependentUpon>
@@ -204,6 +205,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\libssl32.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RekSFV.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

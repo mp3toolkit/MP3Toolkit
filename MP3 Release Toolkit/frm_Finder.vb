@@ -191,15 +191,12 @@ Nodir:
         Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.m3u", "missing")
 
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\nom3u.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\nom3u.txt")))
+        info_listbox.Text = "Found the folllowing Releases WITHOUT an *.m3u:"
 
     End Sub
 
     Private Sub btn_find_renames_Click(sender As Object, e As EventArgs) Handles btn_find_renames.Click
-        btn_mp3_root_dir.Enabled = False
-        btn_result_dir.Enabled = False
-        btn_mis_m3u.Enabled = False
-        btn_mis_sfv.Enabled = False
-        btn_mis_nfo.Enabled = False
+
         If System.IO.File.Exists(TextBox2.Text & "\2check.txt") = True Then System.IO.File.Delete(TextBox2.Text & "\2check.txt")
         If System.IO.File.Exists(TextBox2.Text & "\rename.bat") = True Then System.IO.File.Delete(TextBox2.Text & "\rename.bat")
         ListBox1.Items.Clear()
@@ -208,11 +205,6 @@ Nodir:
 
         If System.IO.File.Exists(TextBox2.Text & "\rename.bat") = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(TextBox2.Text & "\rename.bat"))
 
-        btn_mp3_root_dir.Enabled = True
-        btn_result_dir.Enabled = True
-        btn_mis_m3u.Enabled = True
-        btn_mis_sfv.Enabled = True
-        btn_mis_nfo.Enabled = True
     End Sub
 
     Private Sub btn_mis_sfv_Click(sender As Object, e As EventArgs) Handles btn_mis_sfv.Click
@@ -225,7 +217,7 @@ Nodir:
         Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.sfv", "missing")
 
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\nosfv.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\nosfv.txt")))
-
+        info_listbox.Text = "Found the folllowing Releases WITHOUT an *.sfv:"
     End Sub
 
     Private Sub btn_mis_nfo_Click(sender As Object, e As EventArgs) Handles btn_mis_nfo.Click
@@ -238,7 +230,7 @@ Nodir:
         Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.nfo", "missing")
 
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\nonfo.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\nonfo.txt")))
-
+        info_listbox.Text = "Found the folllowing Releases WITHOUT an *.nfo:"
     End Sub
 
     Private Sub ListBox1_MouseUp(ByVal sender As Object, ByVal e As MouseEventArgs) Handles ListBox1.MouseUp
@@ -269,6 +261,13 @@ Nodir:
         Process.Start(entry)
 Fertig:
     End Sub
+    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
+        If System.IO.Directory.Exists(ListBox1.SelectedItem) = True Then Process.Start("explorer.exe", ListBox1.SelectedItem)
+    End Sub
+    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
+        System.IO.File.WriteAllBytes(My.Application.Info.DirectoryPath & "\reksfv.exe", My.Resources.RekSFV)
+        If System.IO.Directory.Exists(ListBox1.SelectedItem) = True Then Process.Start("reksfv.exe", ListBox1.SelectedItem)
+    End Sub
 
     Private Sub Finder_Click(sender As Object, e As EventArgs) Handles Finder.Click
         frm_Srrdb.Close()
@@ -291,6 +290,7 @@ Fertig:
 
     Private Sub frm_Finder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TextBox2.Text = My.Application.Info.DirectoryPath
+        mp3_root_dir.Text = My.Application.Info.DirectoryPath
     End Sub
 
     Private Sub btn_2x_nfo_Click(sender As Object, e As EventArgs) Handles btn_2x_nfo.Click
@@ -303,7 +303,7 @@ Fertig:
         Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.nfo", "double")
 
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\2xnfo.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\2xnfo.txt")))
-
+        info_listbox.Text = "Found the folllowing Releases with MULTIPLE *.nfo:"
     End Sub
 
     Private Sub btn_2x_sfv_Click(sender As Object, e As EventArgs) Handles btn_2x_sfv.Click
@@ -317,7 +317,7 @@ Fertig:
         Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.sfv", "double")
 
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\2xsfv.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\2xsfv.txt")))
-
+        info_listbox.Text = "Found the folllowing Releases with MULTIPLE *.sfv:"
     End Sub
 
     Private Sub btn_2x_m3u_Click(sender As Object, e As EventArgs) Handles btn_2x_m3u.Click
@@ -331,6 +331,7 @@ Fertig:
         Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.m3u", "double")
 
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\2xm3u.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\2xm3u.txt")))
-
+        info_listbox.Text = "Found the folllowing Releases with MULTIPLE *.m3u:"
     End Sub
+
 End Class

@@ -130,6 +130,9 @@
   <data name="libssl32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\libssl32.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="RekSFV" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RekSFV.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="wget" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wget.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

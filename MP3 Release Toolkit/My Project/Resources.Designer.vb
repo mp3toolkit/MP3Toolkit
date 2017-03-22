@@ -103,6 +103,16 @@ Namespace My.Resources
         '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Byte[].
         '''</summary>
+        Friend ReadOnly Property RekSFV() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("RekSFV", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        '''</summary>
         Friend ReadOnly Property wget() As Byte()
             Get
                 Dim obj As Object = ResourceManager.GetObject("wget", resourceCulture)
