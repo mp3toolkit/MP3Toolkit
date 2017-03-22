@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="searcher.vb" />
     <Compile Include="Net.vb" />
     <Compile Include="CRC.vb" />
     <Compile Include="Vars.vb" />

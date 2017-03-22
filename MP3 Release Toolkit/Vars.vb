@@ -16,4 +16,6 @@
     Public Shared crccounter As Integer = 0
     Public Shared mp3crc_pos As Integer
     Public Shared OrdnerName As String
+    Public Shared mp3_rootdir As String
+    Public Shared workdir As String
 End Class

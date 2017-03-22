@@ -182,46 +182,16 @@ Nodir:
 
 
     Private Sub btn_mis_m3u_Click(sender As Object, e As EventArgs) Handles btn_mis_m3u.Click
-        Dim F As Integer
-        btn_mp3_root_dir.Enabled = False
-        btn_result_dir.Enabled = False
-        btn_mis_sfv.Enabled = False
-        btn_mis_nfo.Enabled = False
-        btn_find_renames.Enabled = False
-        If System.IO.File.Exists(TextBox2.Text & "\nom3u.txt") = True Then System.IO.File.Delete(TextBox2.Text & "\nom3u.txt")
+        Vars.mp3_rootdir = mp3_root_dir.Text
+        Vars.workdir = TextBox2.Text
         ListBox1.Items.Clear()
-        F = FreeFile()
-        FileOpen(F, TextBox2.Text & "\_m3usearch.bat", OpenMode.Output)
-        PrintLine(F, "@ECHO OFF")
-        PrintLine(F, "setlocal enabledelayedexpansion")
-        PrintLine(F, "set nocopyflag=0")
-        PrintLine(F, "for /f %%a in ('dir " & Chr(34) & mp3_root_dir.Text & Chr(34) & " /b /s /ad') do (")
-        PrintLine(F, " set nocopyflag=0")
-        PrintLine(F, " >nul 2>&1 dir /s " & Chr(34) & "%%a\*.m3u" & Chr(34) & " && set /a nocopyflag+=1")
-        PrintLine(F, " if !nocopyflag! equ 0 (")
-        PrintLine(F, "  echo %%a >>" & Chr(34) & TextBox2.Text & Chr(34) & "\nom3u.txt")
-        PrintLine(F, "  REM rd /s /q %%a")
-        PrintLine(F, " ) else (")
-        PrintLine(F, "  REM echo !nocopyflag! of the requested filetypes are present, do not delete: %%a")
-        PrintLine(F, " )")
-        PrintLine(F, ") ")
-        PrintLine(F, "exit /b")
-        FileClose()
-        Dim Proc As New System.Diagnostics.Process
-        Proc.StartInfo = New ProcessStartInfo(TextBox2.Text & "\_m3usearch.bat")
-        Proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
-        Proc.StartInfo.UseShellExecute = False
-        Proc.StartInfo.CreateNoWindow = True
-        Proc.Start()
-        ' Allows script to execute sequentially instead of simultaneously
-        Proc.WaitForExit()
-        If System.IO.File.Exists(TextBox2.Text & "\nom3u.txt") = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(TextBox2.Text & "\nom3u.txt"))
-        If System.IO.File.Exists(TextBox2.Text & "\_m3usearch.bat") = True Then System.IO.File.Delete(TextBox2.Text & "\_m3usearch.bat")
-        btn_mp3_root_dir.Enabled = True
-        btn_result_dir.Enabled = True
-        btn_mis_sfv.Enabled = True
-        btn_mis_nfo.Enabled = True
-        btn_find_renames.Enabled = True
+
+        If System.IO.File.Exists(Vars.workdir & Convert.ToString("\nom3u.txt")) = True Then System.IO.File.Delete(Vars.workdir & Convert.ToString("\nom3u.txt"))
+
+        Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.m3u", "missing")
+
+        If System.IO.File.Exists(Vars.workdir & Convert.ToString("\nom3u.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\nom3u.txt")))
+
     End Sub
 
     Private Sub btn_find_renames_Click(sender As Object, e As EventArgs) Handles btn_find_renames.Click
@@ -246,89 +216,29 @@ Nodir:
     End Sub
 
     Private Sub btn_mis_sfv_Click(sender As Object, e As EventArgs) Handles btn_mis_sfv.Click
-        Dim F As Integer
-        btn_mp3_root_dir.Enabled = False
-        btn_result_dir.Enabled = False
-        btn_mis_m3u.Enabled = False
-        btn_mis_nfo.Enabled = False
-        btn_find_renames.Enabled = False
-        If System.IO.File.Exists(TextBox2.Text & "\nosfv.txt") = True Then System.IO.File.Delete(TextBox2.Text & "\nosfv.txt")
+        Vars.mp3_rootdir = mp3_root_dir.Text
+        Vars.workdir = TextBox2.Text
         ListBox1.Items.Clear()
-        F = FreeFile()
-        FileOpen(F, TextBox2.Text & "\_sfvsearch.bat", OpenMode.Output)
-        PrintLine(F, "@ECHO OFF")
-        PrintLine(F, "setlocal enabledelayedexpansion")
-        PrintLine(F, "set nocopyflag=0")
-        PrintLine(F, "for /f %%a in ('dir " & Chr(34) & mp3_root_dir.Text & Chr(34) & " /b /s /ad') do (")
-        PrintLine(F, " set nocopyflag=0")
-        PrintLine(F, " >nul 2>&1 dir /s " & Chr(34) & "%%a\*.sfv" & Chr(34) & " && set /a nocopyflag+=1")
-        PrintLine(F, " if !nocopyflag! equ 0 (")
-        PrintLine(F, "  echo %%a >>" & Chr(34) & TextBox2.Text & Chr(34) & "\nosfv.txt")
-        PrintLine(F, "  REM rd /s /q %%a")
-        PrintLine(F, " ) else (")
-        PrintLine(F, "  REM echo !nocopyflag! of the requested filetypes are present, do not delete: %%a")
-        PrintLine(F, " )")
-        PrintLine(F, ") ")
-        PrintLine(F, "exit /b")
-        FileClose()
-        Dim Proc As New System.Diagnostics.Process
-        Proc.StartInfo = New ProcessStartInfo(TextBox2.Text & "\_sfvsearch.bat")
-        Proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
-        Proc.StartInfo.UseShellExecute = False
-        Proc.StartInfo.CreateNoWindow = True
-        Proc.Start()
-        ' Allows script to execute sequentially instead of simultaneously
-        Proc.WaitForExit()
-        If System.IO.File.Exists(TextBox2.Text & "\nosfv.txt") = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(TextBox2.Text & "\nosfv.txt"))
-        If System.IO.File.Exists(TextBox2.Text & "\_sfvsearch.bat") = True Then System.IO.File.Delete(TextBox2.Text & "\_sfvsearch.bat")
-        btn_mp3_root_dir.Enabled = True
-        btn_result_dir.Enabled = True
-        btn_mis_m3u.Enabled = True
-        btn_mis_nfo.Enabled = True
-        btn_find_renames.Enabled = True
+
+        If System.IO.File.Exists(Vars.workdir & Convert.ToString("\nosfv.txt")) = True Then System.IO.File.Delete(Vars.workdir & Convert.ToString("\nosfv.txt"))
+
+        Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.sfv", "missing")
+
+        If System.IO.File.Exists(Vars.workdir & Convert.ToString("\nosfv.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\nosfv.txt")))
+
     End Sub
 
     Private Sub btn_mis_nfo_Click(sender As Object, e As EventArgs) Handles btn_mis_nfo.Click
-        Dim F As Integer
-        btn_mp3_root_dir.Enabled = False
-        btn_result_dir.Enabled = False
-        btn_mis_m3u.Enabled = False
-        btn_mis_sfv.Enabled = False
-        btn_find_renames.Enabled = False
-        If System.IO.File.Exists(TextBox2.Text & "\nonfo.txt") = True Then System.IO.File.Delete(TextBox2.Text & "\nonfo.txt")
+        Vars.mp3_rootdir = mp3_root_dir.Text
+        Vars.workdir = TextBox2.Text
         ListBox1.Items.Clear()
-        F = FreeFile()
-        FileOpen(F, TextBox2.Text & "\_nfosearch.bat", OpenMode.Output)
-        PrintLine(F, "@ECHO OFF")
-        PrintLine(F, "setlocal enabledelayedexpansion")
-        PrintLine(F, "set nocopyflag=0")
-        PrintLine(F, "for /f %%a in ('dir " & Chr(34) & mp3_root_dir.Text & Chr(34) & " /b /s /ad') do (")
-        PrintLine(F, " set nocopyflag=0")
-        PrintLine(F, " >nul 2>&1 dir /s " & Chr(34) & "%%a\*.nfo" & Chr(34) & " && set /a nocopyflag+=1")
-        PrintLine(F, " if !nocopyflag! equ 0 (")
-        PrintLine(F, "  echo %%a >>" & Chr(34) & TextBox2.Text & Chr(34) & "\nonfo.txt")
-        PrintLine(F, "  REM rd /s /q %%a")
-        PrintLine(F, " ) else (")
-        PrintLine(F, "  REM echo !nocopyflag! of the requested filetypes are present, do not delete: %%a")
-        PrintLine(F, " )")
-        PrintLine(F, ") ")
-        PrintLine(F, "exit /b")
-        FileClose()
-        Dim Proc As New System.Diagnostics.Process
-        Proc.StartInfo = New ProcessStartInfo(TextBox2.Text & "\_nfosearch.bat")
-        Proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
-        Proc.StartInfo.UseShellExecute = False
-        Proc.StartInfo.CreateNoWindow = True
-        Proc.Start()
-        ' Allows script to execute sequentially instead of simultaneously
-        Proc.WaitForExit()
-        If System.IO.File.Exists(TextBox2.Text & "\nonfo.txt") = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(TextBox2.Text & "\nonfo.txt"))
-        If System.IO.File.Exists(TextBox2.Text & "\_nfosearch.bat") = True Then System.IO.File.Delete(TextBox2.Text & "\_nfosearch.bat")
-        btn_mp3_root_dir.Enabled = True
-        btn_result_dir.Enabled = True
-        btn_mis_m3u.Enabled = True
-        btn_mis_sfv.Enabled = True
-        btn_find_renames.Enabled = True
+
+        If System.IO.File.Exists(Vars.workdir & Convert.ToString("\nonfo.txt")) = True Then System.IO.File.Delete(Vars.workdir & Convert.ToString("\nonfo.txt"))
+
+        Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.nfo", "missing")
+
+        If System.IO.File.Exists(Vars.workdir & Convert.ToString("\nonfo.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\nonfo.txt")))
+
     End Sub
 
     Private Sub ListBox1_MouseUp(ByVal sender As Object, ByVal e As MouseEventArgs) Handles ListBox1.MouseUp
@@ -384,131 +294,43 @@ Fertig:
     End Sub
 
     Private Sub btn_2x_nfo_Click(sender As Object, e As EventArgs) Handles btn_2x_nfo.Click
-        Dim F As Integer
-        btn_mp3_root_dir.Enabled = False
-        btn_result_dir.Enabled = False
-        btn_mis_m3u.Enabled = False
-        btn_mis_sfv.Enabled = False
-        btn_find_renames.Enabled = False
-        If System.IO.File.Exists(TextBox2.Text & "\2xnfo.txt") = True Then System.IO.File.Delete(TextBox2.Text & "\2xnfo.txt")
+        Vars.mp3_rootdir = mp3_root_dir.Text
+        Vars.workdir = TextBox2.Text
         ListBox1.Items.Clear()
-        F = FreeFile()
-        FileOpen(F, TextBox2.Text & "\_2xnfosearch.bat", OpenMode.Output)
-        PrintLine(F, "@ECHO OFF")
-        PrintLine(F, "setlocal enabledelayedexpansion")
-        PrintLine(F, "set nocopyflag=0")
-        PrintLine(F, "for /f %%a in ('dir " & Chr(34) & mp3_root_dir.Text & Chr(34) & " /b /s /ad') do (")
-        PrintLine(F, " set nocopyflag=0")
-        PrintLine(F, " >nul 2>&1 dir /s " & Chr(34) & "%%a\*.nfo" & Chr(34) & " && set /a nocopyflag+=1")
-        PrintLine(F, " if !nocopyflag! gtr 1 (")
-        PrintLine(F, "  echo %%a >>" & Chr(34) & TextBox2.Text & Chr(34) & "\2xnfo.txt")
-        PrintLine(F, "  REM rd /s /q %%a")
-        PrintLine(F, " ) else (")
-        PrintLine(F, "  REM echo !nocopyflag! of the requested filetypes are present, do not delete: %%a")
-        PrintLine(F, " )")
-        PrintLine(F, ") ")
-        PrintLine(F, "exit /b")
-        FileClose()
-        Dim Proc As New System.Diagnostics.Process
-        Proc.StartInfo = New ProcessStartInfo(TextBox2.Text & "\_2xnfosearch.bat")
-        Proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
-        Proc.StartInfo.UseShellExecute = False
-        Proc.StartInfo.CreateNoWindow = True
-        Proc.Start()
-        ' Allows script to execute sequentially instead of simultaneously
-        Proc.WaitForExit()
-        If System.IO.File.Exists(TextBox2.Text & "\2xnfo.txt") = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(TextBox2.Text & "\2xnfo.txt"))
-        If System.IO.File.Exists(TextBox2.Text & "\_2xnfosearch.bat") = True Then System.IO.File.Delete(TextBox2.Text & "\_2xnfosearch.bat")
-        btn_mp3_root_dir.Enabled = True
-        btn_result_dir.Enabled = True
-        btn_mis_m3u.Enabled = True
-        btn_mis_sfv.Enabled = True
-        btn_find_renames.Enabled = True
+
+        If System.IO.File.Exists(Vars.workdir & Convert.ToString("\2xnfo.txt")) = True Then System.IO.File.Delete(Vars.workdir & Convert.ToString("\2xnfo.txt"))
+
+        Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.nfo", "double")
+
+        If System.IO.File.Exists(Vars.workdir & Convert.ToString("\2xnfo.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\2xnfo.txt")))
+
     End Sub
 
     Private Sub btn_2x_sfv_Click(sender As Object, e As EventArgs) Handles btn_2x_sfv.Click
-        Dim F As Integer
-        btn_mp3_root_dir.Enabled = False
-        btn_result_dir.Enabled = False
-        btn_mis_m3u.Enabled = False
-        btn_mis_sfv.Enabled = False
-        btn_find_renames.Enabled = False
-        If System.IO.File.Exists(TextBox2.Text & "\2xsfv.txt") = True Then System.IO.File.Delete(TextBox2.Text & "\2xsfv.txt")
+
+        Vars.mp3_rootdir = mp3_root_dir.Text
+        Vars.workdir = TextBox2.Text
         ListBox1.Items.Clear()
-        F = FreeFile()
-        FileOpen(F, TextBox2.Text & "\_2xsfvsearch.bat", OpenMode.Output)
-        PrintLine(F, "@ECHO OFF")
-        PrintLine(F, "setlocal enabledelayedexpansion")
-        PrintLine(F, "set nocopyflag=0")
-        PrintLine(F, "for /f %%a in ('dir " & Chr(34) & mp3_root_dir.Text & Chr(34) & " /b /s /ad') do (")
-        PrintLine(F, " set nocopyflag=0")
-        PrintLine(F, " >nul 2>&1 dir /s " & Chr(34) & "%%a\*.sfv" & Chr(34) & " && set /a nocopyflag+=1")
-        PrintLine(F, " if !nocopyflag! gtr 1 (")
-        PrintLine(F, "  echo %%a >>" & Chr(34) & TextBox2.Text & Chr(34) & "\2xsfv.txt")
-        PrintLine(F, "  REM rd /s /q %%a")
-        PrintLine(F, " ) else (")
-        PrintLine(F, "  REM echo !nocopyflag! of the requested filetypes are present, do not delete: %%a")
-        PrintLine(F, " )")
-        PrintLine(F, ") ")
-        PrintLine(F, "exit /b")
-        FileClose()
-        Dim Proc As New System.Diagnostics.Process
-        Proc.StartInfo = New ProcessStartInfo(TextBox2.Text & "\_2xsfvsearch.bat")
-        Proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
-        Proc.StartInfo.UseShellExecute = False
-        Proc.StartInfo.CreateNoWindow = True
-        Proc.Start()
-        ' Allows script to execute sequentially instead of simultaneously
-        Proc.WaitForExit()
-        If System.IO.File.Exists(TextBox2.Text & "\2xsfv.txt") = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(TextBox2.Text & "\2xsfv.txt"))
-        If System.IO.File.Exists(TextBox2.Text & "\_2xsfvsearch.bat") = True Then System.IO.File.Delete(TextBox2.Text & "\_2xsfvsearch.bat")
-        btn_mp3_root_dir.Enabled = True
-        btn_result_dir.Enabled = True
-        btn_mis_m3u.Enabled = True
-        btn_mis_sfv.Enabled = True
-        btn_find_renames.Enabled = True
+
+        If System.IO.File.Exists(Vars.workdir & Convert.ToString("\2xsfv.txt")) = True Then System.IO.File.Delete(Vars.workdir & Convert.ToString("\2xsfv.txt"))
+
+        Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.sfv", "double")
+
+        If System.IO.File.Exists(Vars.workdir & Convert.ToString("\2xsfv.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\2xsfv.txt")))
+
     End Sub
 
     Private Sub btn_2x_m3u_Click(sender As Object, e As EventArgs) Handles btn_2x_m3u.Click
-        Dim F As Integer
-        btn_mp3_root_dir.Enabled = False
-        btn_result_dir.Enabled = False
-        btn_mis_m3u.Enabled = False
-        btn_mis_sfv.Enabled = False
-        btn_find_renames.Enabled = False
-        If System.IO.File.Exists(TextBox2.Text & "\2xm3u.txt") = True Then System.IO.File.Delete(TextBox2.Text & "\2xm3u.txt")
+
+        Vars.mp3_rootdir = mp3_root_dir.Text
+        Vars.workdir = TextBox2.Text
         ListBox1.Items.Clear()
-        F = FreeFile()
-        FileOpen(F, TextBox2.Text & "\_2xm3usearch.bat", OpenMode.Output)
-        PrintLine(F, "@ECHO OFF")
-        PrintLine(F, "setlocal enabledelayedexpansion")
-        PrintLine(F, "set nocopyflag=0")
-        PrintLine(F, "for /f %%a in ('dir " & Chr(34) & mp3_root_dir.Text & Chr(34) & " /b /s /ad') do (")
-        PrintLine(F, " set nocopyflag=0")
-        PrintLine(F, " >nul 2>&1 dir /s " & Chr(34) & "%%a\*.nfo" & Chr(34) & " && set /a nocopyflag+=1")
-        PrintLine(F, " if !nocopyflag! gtr 1 (")
-        PrintLine(F, "  echo %%a >>" & Chr(34) & TextBox2.Text & Chr(34) & "\2xm3u.txt")
-        PrintLine(F, "  REM rd /s /q %%a")
-        PrintLine(F, " ) else (")
-        PrintLine(F, "  REM echo !nocopyflag! of the requested filetypes are present, do not delete: %%a")
-        PrintLine(F, " )")
-        PrintLine(F, ") ")
-        PrintLine(F, "exit /b")
-        FileClose()
-        Dim Proc As New System.Diagnostics.Process
-        Proc.StartInfo = New ProcessStartInfo(TextBox2.Text & "\_2xm3usearch.bat")
-        Proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
-        Proc.StartInfo.UseShellExecute = False
-        Proc.StartInfo.CreateNoWindow = True
-        Proc.Start()
-        ' Allows script to execute sequentially instead of simultaneously
-        Proc.WaitForExit()
-        If System.IO.File.Exists(TextBox2.Text & "\2xm3u.txt") = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(TextBox2.Text & "\2xm3u.txt"))
-        If System.IO.File.Exists(TextBox2.Text & "\_2xm3usearch.bat") = True Then System.IO.File.Delete(TextBox2.Text & "\_2xm3usearch.bat")
-        btn_mp3_root_dir.Enabled = True
-        btn_result_dir.Enabled = True
-        btn_mis_m3u.Enabled = True
-        btn_mis_sfv.Enabled = True
-        btn_find_renames.Enabled = True
+
+        If System.IO.File.Exists(Vars.workdir & Convert.ToString("\2xm3u.txt")) = True Then System.IO.File.Delete(Vars.workdir & Convert.ToString("\2xm3u.txt"))
+
+        Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.m3u", "double")
+
+        If System.IO.File.Exists(Vars.workdir & Convert.ToString("\2xm3u.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\2xm3u.txt")))
+
     End Sub
 End Class
