@@ -262,7 +262,7 @@ Nodir:
 Fertig:
     End Sub
     Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
-        If System.IO.Directory.Exists(ListBox1.SelectedItem) = True Then Process.Start("explorer.exe", ListBox1.SelectedItem)
+        If System.IO.Directory.Exists(ListBox1.SelectedItem) = True Then Process.Start(ListBox1.SelectedItem)
     End Sub
     Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
         System.IO.File.WriteAllBytes(My.Application.Info.DirectoryPath & "\reksfv.exe", My.Resources.RekSFV)
