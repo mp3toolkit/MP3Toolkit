@@ -52,8 +52,8 @@ Partial Class frm_Finder
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.btn_ = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btn_sysjpg = New System.Windows.Forms.Button()
+        Me.btn_ftpdfiles = New System.Windows.Forms.Button()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -290,8 +290,8 @@ Partial Class frm_Finder
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.Button1)
-        Me.GroupBox3.Controls.Add(Me.btn_)
+        Me.GroupBox3.Controls.Add(Me.btn_ftpdfiles)
+        Me.GroupBox3.Controls.Add(Me.btn_sysjpg)
         Me.GroupBox3.Controls.Add(Me.btn_find_renames)
         Me.GroupBox3.Location = New System.Drawing.Point(12, 441)
         Me.GroupBox3.Name = "GroupBox3"
@@ -300,23 +300,23 @@ Partial Class frm_Finder
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Miscellaneous"
         '
-        'btn_
+        'btn_sysjpg
         '
-        Me.btn_.Location = New System.Drawing.Point(25, 24)
-        Me.btn_.Name = "btn_"
-        Me.btn_.Size = New System.Drawing.Size(158, 22)
-        Me.btn_.TabIndex = 18
-        Me.btn_.Text = "Find system *.jpgs"
-        Me.btn_.UseVisualStyleBackColor = True
+        Me.btn_sysjpg.Location = New System.Drawing.Point(25, 24)
+        Me.btn_sysjpg.Name = "btn_sysjpg"
+        Me.btn_sysjpg.Size = New System.Drawing.Size(158, 22)
+        Me.btn_sysjpg.TabIndex = 18
+        Me.btn_sysjpg.Text = "Find system *.jpgs"
+        Me.btn_sysjpg.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btn_ftpdfiles
         '
-        Me.Button1.Location = New System.Drawing.Point(25, 52)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(158, 22)
-        Me.Button1.TabIndex = 24
-        Me.Button1.Text = "Find FTPd files"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btn_ftpdfiles.Location = New System.Drawing.Point(25, 52)
+        Me.btn_ftpdfiles.Name = "btn_ftpdfiles"
+        Me.btn_ftpdfiles.Size = New System.Drawing.Size(158, 22)
+        Me.btn_ftpdfiles.TabIndex = 24
+        Me.btn_ftpdfiles.Text = "Find FTPd files"
+        Me.btn_ftpdfiles.UseVisualStyleBackColor = True
         '
         'frm_Finder
         '
@@ -380,6 +380,6 @@ Partial Class frm_Finder
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents btn_ As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btn_sysjpg As Button
+    Friend WithEvents btn_ftpdfiles As Button
 End Class

@@ -106,7 +106,7 @@ Public Class frm_fixit
                 Dim file As String
                 For Each file In OFD.FileNames
                     Vars.buffcopy = System.IO.File.ReadAllBytes(file)
-                    Vars.mp3size = Vars.buff.Length
+                    Vars.mp3size = Vars.buffcopy.Length
                     If Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_size - 1) = &H30 AndAlso Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_size - 2) = &H30 AndAlso Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_size - 3) = &H32 Then
                         Vars.id3v1_lenly = CInt(Chr(Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_lenly_pos)) & Chr(Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_lenly_pos + 1)) & Chr(Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_lenly_pos + 2)))
                         Vars.id3v1_ly_pos = Vars.id3v1_size + &HF + Vars.id3v1_lenly
@@ -117,7 +117,7 @@ Public Class frm_fixit
                             Array.Resize(buffmod, buffmod.Length + 1)
                             buffmod(buffmod.Length - 1) = Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_size + i)
                         Next
-                        If cb_trknum.Checked = True Then buffmod(buffmod.Length - 2) = CInt(file.Substring(0, 2))
+                        If cb_trknum.Checked = True Then buffmod(buffmod.Length - 2) = CInt(System.IO.Path.GetFileName(file).Substring(0, 2))
                         'System.IO.File.Delete(file)
                         System.IO.File.WriteAllBytes(file & "2", buffmod)
                     End If
