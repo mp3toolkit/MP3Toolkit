@@ -118,8 +118,8 @@ Public Class frm_fixit
                             buffmod(buffmod.Length - 1) = Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_size + i)
                         Next
                         If cb_trknum.Checked = True Then buffmod(buffmod.Length - 2) = CInt(System.IO.Path.GetFileName(file).Substring(0, 2))
-                        'System.IO.File.Delete(file)
-                        System.IO.File.WriteAllBytes(file & "2", buffmod)
+                        System.IO.File.Delete(file)
+                        System.IO.File.WriteAllBytes(file, buffmod)
                     End If
                 Next
                 MessageBox.Show("Cleaned Files Saved. Check Tracknumbers", "Success", MessageBoxButtons.OK)
