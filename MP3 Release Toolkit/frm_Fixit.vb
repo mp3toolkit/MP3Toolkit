@@ -105,9 +105,8 @@ Public Class frm_fixit
             If OFD.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
                 Dim file As String
                 For Each file In OFD.FileNames
-                    Vars.buff = System.IO.File.ReadAllBytes(file)
+                    Vars.buffcopy = System.IO.File.ReadAllBytes(file)
                     Vars.mp3size = Vars.buff.Length
-                    Vars.buffcopy = Vars.buff
                     If Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_size - 1) = &H30 AndAlso Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_size - 2) = &H30 AndAlso Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_size - 3) = &H32 Then
                         Vars.id3v1_lenly = CInt(Chr(Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_lenly_pos)) & Chr(Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_lenly_pos + 1)) & Chr(Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_lenly_pos + 2)))
                         Vars.id3v1_ly_pos = Vars.id3v1_size + &HF + Vars.id3v1_lenly
@@ -118,12 +117,9 @@ Public Class frm_fixit
                             Array.Resize(buffmod, buffmod.Length + 1)
                             buffmod(buffmod.Length - 1) = Vars.buffcopy(Vars.buffcopy.Length - Vars.id3v1_size + i)
                         Next
-
-                        System.IO.File.Delete(file)
-                        System.IO.File.WriteAllBytes(file, buffmod)
-                        'System.IO.File.WriteAllBytes(TextBox1.Text & ".withoutcrc", buffcopy)
-                        'If Vars.crcresult = CRC32.GetCRC32(buffcopy, Vars.mp3size) Then
-                        'If Vars.crcresult = frm_fixit.TextBox2.Text Then Call Save_Fixed_Msg(buffcopy)
+                        If cb_trknum.Checked = True Then buffmod(buffmod.Length - 2) = CInt(file.Substring(0, 2))
+                        'System.IO.File.Delete(file)
+                        System.IO.File.WriteAllBytes(file & "2", buffmod)
                     End If
                 Next
                 MessageBox.Show("Cleaned Files Saved. Check Tracknumbers", "Success", MessageBoxButtons.OK)
@@ -133,7 +129,7 @@ Public Class frm_fixit
         End Using
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btn_patchposition.Click
         Using OFD As New OpenFileDialog()
             OFD.Filter = "mp3 Files|*.mp3"
             OFD.Title = "Select infected mp3s"
@@ -149,6 +145,10 @@ Public Class frm_fixit
                 Next
             End If
         End Using
+
+    End Sub
+
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
 
     End Sub
 End Class
