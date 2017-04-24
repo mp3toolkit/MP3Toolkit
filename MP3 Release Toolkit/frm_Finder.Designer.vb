@@ -52,8 +52,9 @@ Partial Class frm_Finder
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.btn_sysjpg = New System.Windows.Forms.Button()
         Me.btn_ftpdfiles = New System.Windows.Forms.Button()
+        Me.btn_sysjpg = New System.Windows.Forms.Button()
+        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -159,24 +160,27 @@ Partial Class frm_Finder
         '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.ToolStripMenuItem2, Me.ToolStripMenuItem3})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.ToolStripMenuItem2, Me.ToolStripMenuItem3, Me.ToolStripMenuItem4})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(217, 70)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(217, 114)
         '
         'ToolStripMenuItem1
         '
+        Me.ToolStripMenuItem1.Enabled = False
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(216, 22)
         Me.ToolStripMenuItem1.Text = "Get Details on srrdb.com"
         '
         'ToolStripMenuItem2
         '
+        Me.ToolStripMenuItem2.Enabled = False
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
         Me.ToolStripMenuItem2.Size = New System.Drawing.Size(216, 22)
         Me.ToolStripMenuItem2.Text = "Open Dir in Windows Explorer"
         '
         'ToolStripMenuItem3
         '
+        Me.ToolStripMenuItem3.Enabled = False
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
         Me.ToolStripMenuItem3.Size = New System.Drawing.Size(216, 22)
         Me.ToolStripMenuItem3.Text = "Send to RekSFV"
@@ -300,6 +304,15 @@ Partial Class frm_Finder
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Miscellaneous"
         '
+        'btn_ftpdfiles
+        '
+        Me.btn_ftpdfiles.Location = New System.Drawing.Point(25, 52)
+        Me.btn_ftpdfiles.Name = "btn_ftpdfiles"
+        Me.btn_ftpdfiles.Size = New System.Drawing.Size(158, 22)
+        Me.btn_ftpdfiles.TabIndex = 24
+        Me.btn_ftpdfiles.Text = "Find FTPd files"
+        Me.btn_ftpdfiles.UseVisualStyleBackColor = True
+        '
         'btn_sysjpg
         '
         Me.btn_sysjpg.Location = New System.Drawing.Point(25, 24)
@@ -309,14 +322,12 @@ Partial Class frm_Finder
         Me.btn_sysjpg.Text = "Find system *.jpgs"
         Me.btn_sysjpg.UseVisualStyleBackColor = True
         '
-        'btn_ftpdfiles
+        'ToolStripMenuItem4
         '
-        Me.btn_ftpdfiles.Location = New System.Drawing.Point(25, 52)
-        Me.btn_ftpdfiles.Name = "btn_ftpdfiles"
-        Me.btn_ftpdfiles.Size = New System.Drawing.Size(158, 22)
-        Me.btn_ftpdfiles.TabIndex = 24
-        Me.btn_ftpdfiles.Text = "Find FTPd files"
-        Me.btn_ftpdfiles.UseVisualStyleBackColor = True
+        Me.ToolStripMenuItem4.Enabled = False
+        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(216, 22)
+        Me.ToolStripMenuItem4.Text = "Delete File directly"
         '
         'frm_Finder
         '
@@ -382,4 +393,5 @@ Partial Class frm_Finder
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents btn_sysjpg As Button
     Friend WithEvents btn_ftpdfiles As Button
+    Friend WithEvents ToolStripMenuItem4 As ToolStripMenuItem
 End Class

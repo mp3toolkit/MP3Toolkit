@@ -241,32 +241,83 @@ Nodir:
 
                 ' Show context menu here using 'ContextMenu.Show'...
                 If e.Button = System.Windows.Forms.MouseButtons.Right Then
+                    Dim entry As String = ListBox1.SelectedItem.Substring(0, 10)
+                    If entry = "      --  " Then
+                        ToolStripMenuItem4.Enabled = True
+                        ToolStripMenuItem1.Enabled = False
+                        ToolStripMenuItem2.Enabled = False
+                        ToolStripMenuItem3.Enabled = False
+                    ElseIf entry.Substring(0, 3) = "REN" Then
+                        ToolStripMenuItem1.Enabled = True
+                        ToolStripMenuItem2.Enabled = True
+                        ToolStripMenuItem3.Enabled = True
+                        ToolStripMenuItem4.Enabled = False
+                    ElseIf entry.Substring(0, 3) = "REM" Then
+                        ToolStripMenuItem4.Enabled = False
+                        ToolStripMenuItem1.Enabled = False
+                        ToolStripMenuItem2.Enabled = False
+                        ToolStripMenuItem3.Enabled = False
+                    Else
+                        ToolStripMenuItem1.Enabled = True
+                        ToolStripMenuItem2.Enabled = True
+                        ToolStripMenuItem3.Enabled = True
+                        ToolStripMenuItem4.Enabled = False
+                    End If
                     ContextMenuStrip1.Show(MousePosition)
+                    End If
                 End If
-            End If
         End If
     End Sub
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
         Dim index2 As Integer = ListBox1.SelectedItem.LastIndexOf("\")
         Dim index3 As Integer = ListBox1.SelectedItem.LastIndexOf(Chr(34) & " " & Chr(34))
-        Dim entry As String = ListBox1.SelectedItem.Substring(0, 3)
-        If entry = "REM" Then
-            MessageBox.Show("Click the release not the comment...")
-            GoTo Fertig
+        Dim entry As String = ""
+        If index3 = -1 Then
+            entry = ListBox1.SelectedItem.Substring(index2 + 1)
+        Else
+            entry = Trim(Replace(ListBox1.SelectedItem.Substring(index3 + 3), Chr(34), " "))
         End If
-
-        If entry = "Ren" Then entry = Trim(Replace(ListBox1.SelectedItem.Substring(index3 + 3), Chr(34), " ")) Else entry = ListBox1.SelectedItem.Substring(index2 + 1)
         entry = "https://www.srrdb.com/release/details/" & entry
-        Process.Start(entry)
-Fertig:
+            Process.Start(entry)
+
+            ToolStripMenuItem1.Enabled = False
     End Sub
     Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
         If System.IO.Directory.Exists(ListBox1.SelectedItem) = True Then Process.Start(ListBox1.SelectedItem)
+        ToolStripMenuItem2.Enabled = False
     End Sub
     Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
         System.IO.File.WriteAllBytes(My.Application.Info.DirectoryPath & "\reksfv.exe", My.Resources.RekSFV)
         If System.IO.Directory.Exists(ListBox1.SelectedItem) = True Then Process.Start("reksfv.exe", ListBox1.SelectedItem)
+        ToolStripMenuItem3.Enabled = False
+    End Sub
+    Private Sub ToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem4.Click
+        Dim entry As String = ListBox1.SelectedItem.Substring(10)
+        If System.IO.File.Exists(entry) = True Then System.IO.File.Delete(entry)
+        If System.IO.File.Exists(entry) = False Then ListBox1.Items.Remove(ListBox1.SelectedItem)
+        Dim lines(ListBox1.Items.Count - 1) As String
+        If info_listbox.Text = "Found the folllowing Releases WITHOUT an *.nfo:" Then
+            ListBox1.Items.CopyTo(lines, 0)
+            File.WriteAllLines(Vars.workdir & Convert.ToString("\nonfo.txt"), lines)
+        ElseIf info_listbox.Text = "Found the folllowing Releases WITHOUT an *.m3u:" Then
+            ListBox1.Items.CopyTo(lines, 0)
+            File.WriteAllLines(Vars.workdir & Convert.ToString("\nom3u.txt"), lines)
+        ElseIf info_listbox.Text = "Found the folllowing Releases WITHOUT an *.sfv:" Then
+            ListBox1.Items.CopyTo(lines, 0)
+            File.WriteAllLines(Vars.workdir & Convert.ToString("\nosfv.txt"), lines)
+        ElseIf info_listbox.Text = "Found the folllowing Releases with MULTIPLE *.nfo:" Then
+            ListBox1.Items.CopyTo(lines, 0)
+            File.WriteAllLines(Vars.workdir & Convert.ToString("\2xnfo.txt"), lines)
+        ElseIf info_listbox.Text = "Found the folllowing Releases with MULTIPLE *.sfv:" Then
+            ListBox1.Items.CopyTo(lines, 0)
+            File.WriteAllLines(Vars.workdir & Convert.ToString("\2xsfv.txt"), lines)
+        ElseIf info_listbox.Text = "Found the folllowing Releases with MULTIPLE *.m3u:" Then
+            ListBox1.Items.CopyTo(lines, 0)
+            File.WriteAllLines(Vars.workdir & Convert.ToString("\2xm3u.txt"), lines)
+
+        End If
+        ToolStripMenuItem4.Enabled = False
     End Sub
 
     Private Sub Finder_Click(sender As Object, e As EventArgs) Handles Finder.Click
@@ -359,4 +410,6 @@ Fertig:
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\systemjpgs.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\nosfv.txt")))
         info_listbox.Text = "Found the folllowing Releases WITH FTPD files (""raidenftpd.acl"" & ""ioftpd.zs"" :"
     End Sub
+
+
 End Class
