@@ -341,10 +341,10 @@ Fertig:
 
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\systemjpgs.txt")) = True Then System.IO.File.Delete(Vars.workdir & Convert.ToString("\systemjpgs.txt"))
 
-        Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.jpg", "missing")
+        Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.jpg", "sysjpgs")
 
-        If System.IO.File.Exists(Vars.workdir & Convert.ToString("\systemjpgs.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\nosfv.txt")))
-        info_listbox.Text = "Found the folllowing Releases WITH Windows *.jpgs (""Folder.jpg"" & ""AlbumArtSmall.jpg"" :"
+        If System.IO.File.Exists(Vars.workdir & Convert.ToString("\systemjpgs.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\systemjpgs.txt")))
+        info_listbox.Text = "Found the folllowing Releases WITH Windows *.jpgs ( ""Folder.jpg"" & ""AlbumArtSmall.jpg"") :"
     End Sub
 
     Private Sub btn_ftpdfiles_Click(sender As Object, e As EventArgs) Handles btn_ftpdfiles.Click

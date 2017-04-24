@@ -143,6 +143,7 @@ Public Class frm_fixit
                     System.IO.File.Delete(file)
                     System.IO.File.WriteAllBytes(file, Vars.buff)
                 Next
+                MessageBox.Show("Patched Files Saved", "Success", MessageBoxButtons.OK)
             End If
         End Using
 

@@ -147,7 +147,7 @@ Partial Class frm_Srrdb
         Me.MinimizeBox = False
         Me.Name = "frm_Srrdb"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "MP3 Toolkit v0.03 - SRRDB"
+        Me.Text = "MP3 Toolkit v0.04 - SRRDB"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
