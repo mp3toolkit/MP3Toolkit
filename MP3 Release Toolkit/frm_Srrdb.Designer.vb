@@ -34,15 +34,21 @@ Partial Class frm_Srrdb
         Me.Fixer = New System.Windows.Forms.ToolStripButton()
         Me.cb_Logwget = New System.Windows.Forms.CheckBox()
         Me.cb_logretag = New System.Windows.Forms.CheckBox()
+        Me.Lists = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         btn_fixit = New System.Windows.Forms.Button()
         Me.ToolStrip1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'btn_fixit
         '
-        btn_fixit.Location = New System.Drawing.Point(444, 66)
+        btn_fixit.Location = New System.Drawing.Point(9, 47)
         btn_fixit.Name = "btn_fixit"
-        btn_fixit.Size = New System.Drawing.Size(121, 32)
+        btn_fixit.Size = New System.Drawing.Size(120, 22)
         btn_fixit.TabIndex = 27
         btn_fixit.Text = "Get srrs and fix them !"
         btn_fixit.UseVisualStyleBackColor = True
@@ -51,26 +57,26 @@ Partial Class frm_Srrdb
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(12, 28)
+        Me.ListBox1.Location = New System.Drawing.Point(169, 39)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(417, 719)
+        Me.ListBox1.Size = New System.Drawing.Size(470, 719)
         Me.ListBox1.TabIndex = 1
         '
         'btn_loadfolderlist
         '
-        Me.btn_loadfolderlist.Location = New System.Drawing.Point(444, 28)
+        Me.btn_loadfolderlist.Location = New System.Drawing.Point(9, 19)
         Me.btn_loadfolderlist.Name = "btn_loadfolderlist"
-        Me.btn_loadfolderlist.Size = New System.Drawing.Size(121, 32)
+        Me.btn_loadfolderlist.Size = New System.Drawing.Size(120, 22)
         Me.btn_loadfolderlist.TabIndex = 2
         Me.btn_loadfolderlist.Text = "Load Folderlist"
         Me.btn_loadfolderlist.UseVisualStyleBackColor = True
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Finder, Me.ToolStripSeparator1, Me.Srrdb, Me.ToolStripSeparator2, Me.Fixer})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Finder, Me.ToolStripSeparator1, Me.Lists, Me.ToolStripSeparator3, Me.Srrdb, Me.ToolStripSeparator2, Me.Fixer})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(577, 25)
+        Me.ToolStrip1.Size = New System.Drawing.Size(651, 25)
         Me.ToolStrip1.TabIndex = 26
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -114,7 +120,7 @@ Partial Class frm_Srrdb
         'cb_Logwget
         '
         Me.cb_Logwget.AutoSize = True
-        Me.cb_Logwget.Location = New System.Drawing.Point(444, 123)
+        Me.cb_Logwget.Location = New System.Drawing.Point(9, 19)
         Me.cb_Logwget.Name = "cb_Logwget"
         Me.cb_Logwget.Size = New System.Drawing.Size(80, 17)
         Me.cb_Logwget.TabIndex = 28
@@ -124,23 +130,54 @@ Partial Class frm_Srrdb
         'cb_logretag
         '
         Me.cb_logretag.AutoSize = True
-        Me.cb_logretag.Location = New System.Drawing.Point(444, 146)
+        Me.cb_logretag.Location = New System.Drawing.Point(9, 42)
         Me.cb_logretag.Name = "cb_logretag"
         Me.cb_logretag.Size = New System.Drawing.Size(80, 17)
         Me.cb_logretag.TabIndex = 29
         Me.cb_logretag.Text = "Log ReTag"
         Me.cb_logretag.UseVisualStyleBackColor = True
         '
+        'Lists
+        '
+        Me.Lists.Name = "Lists"
+        Me.Lists.Size = New System.Drawing.Size(69, 22)
+        Me.Lists.Text = "Release Lists"
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.cb_Logwget)
+        Me.GroupBox1.Controls.Add(Me.cb_logretag)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 129)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(140, 71)
+        Me.GroupBox1.TabIndex = 30
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Options"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.btn_loadfolderlist)
+        Me.GroupBox2.Controls.Add(btn_fixit)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 39)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(140, 84)
+        Me.GroupBox2.TabIndex = 31
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Commands"
+        '
         'frm_Srrdb
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(577, 769)
-        Me.Controls.Add(Me.cb_logretag)
-        Me.Controls.Add(Me.cb_Logwget)
-        Me.Controls.Add(btn_fixit)
+        Me.ClientSize = New System.Drawing.Size(651, 769)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ToolStrip1)
-        Me.Controls.Add(Me.btn_loadfolderlist)
         Me.Controls.Add(Me.ListBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
@@ -150,6 +187,9 @@ Partial Class frm_Srrdb
         Me.Text = "MP3 Toolkit v0.04 - SRRDB"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -165,4 +205,8 @@ Partial Class frm_Srrdb
     Friend WithEvents Fixer As ToolStripButton
     Friend WithEvents cb_Logwget As CheckBox
     Friend WithEvents cb_logretag As CheckBox
+    Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
+    Friend WithEvents Lists As ToolStripLabel
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GroupBox2 As GroupBox
 End Class

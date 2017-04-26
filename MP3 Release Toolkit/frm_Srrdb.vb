@@ -14,6 +14,7 @@
 
     Private Sub Finder_Click(sender As Object, e As EventArgs) Handles Finder.Click
         frm_fixit.Close()
+        frm_lists.Close()
         frm_Finder.StartPosition = FormStartPosition.Manual
         frm_Finder.Location = New Point(Me.Left, Me.Top)
         frm_Finder.Show()
@@ -23,12 +24,21 @@
     Private Sub Srrdb_Click(sender As Object, e As EventArgs) Handles Srrdb.Click
         frm_fixit.Close()
         frm_Finder.Close()
+        frm_lists.Close()
     End Sub
 
     Private Sub Fixer_Click(sender As Object, e As EventArgs) Handles Fixer.Click
         frm_Finder.Close()
+        frm_lists.Close()
         frm_fixit.Location = New Point(Me.Left, Me.Top)
         frm_fixit.Show()
+        Me.Close()
+    End Sub
+    Private Sub Lists_Click(sender As Object, e As EventArgs) Handles Lists.Click
+        frm_Finder.Close()
+        frm_fixit.Close()
+        frm_lists.Location = New Point(Me.Left, Me.Top)
+        frm_lists.Show()
         Me.Close()
     End Sub
 
@@ -39,4 +49,10 @@
 goon:
         Next
     End Sub
+
+    Private Sub ToolStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles ToolStrip1.ItemClicked
+
+    End Sub
+
+
 End Class

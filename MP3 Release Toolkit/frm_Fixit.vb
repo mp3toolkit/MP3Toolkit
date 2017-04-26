@@ -75,6 +75,7 @@ Public Class frm_fixit
 
     Private Sub Finder_Click(sender As Object, e As EventArgs) Handles Finder.Click
         frm_Srrdb.Close()
+        frm_lists.Close()
         frm_Finder.StartPosition = FormStartPosition.Manual
         frm_Finder.Location = New Point(Me.Left, Me.Top)
         frm_Finder.Show()
@@ -83,6 +84,7 @@ Public Class frm_fixit
 
     Private Sub Srrdb_Click(sender As Object, e As EventArgs) Handles Srrdb.Click
         frm_Finder.Close()
+        frm_lists.Close()
         frm_Srrdb.Location = New Point(Me.Left, Me.Top)
         frm_Srrdb.Show()
         Me.Close()
@@ -91,6 +93,14 @@ Public Class frm_fixit
     Private Sub Fixer_Click(sender As Object, e As EventArgs) Handles Fixer.Click
         frm_Srrdb.Close()
         frm_Finder.Close()
+        frm_lists.Close()
+    End Sub
+    Private Sub Lists_Click(sender As Object, e As EventArgs) Handles Lists.Click
+        frm_Finder.Close()
+        frm_Srrdb.Close()
+        frm_lists.Location = New Point(Me.Left, Me.Top)
+        frm_lists.Show()
+        Me.Close()
     End Sub
 
     Private Sub frm_fixit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -152,6 +162,8 @@ Public Class frm_fixit
     Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
 
     End Sub
+
+
 End Class
 
 

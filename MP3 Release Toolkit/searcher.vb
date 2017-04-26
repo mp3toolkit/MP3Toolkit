@@ -29,13 +29,16 @@ Public Class searcher
                             Dim bool As Boolean = file.ToString.ToLower.Contains("000-") Or file.ToString.ToLower.Contains("000_")
                             Dim bool1 As Boolean = file.ToString.ToLower.Contains("100-") Or file.ToString.ToLower.Contains("100_")
                             Dim bool2 As Boolean = file.ToString.ToLower.Contains("200-") Or file.ToString.ToLower.Contains("200_")
+                            Dim bool3 As Boolean = file.ToString.ToLower.Contains("300-") Or file.ToString.ToLower.Contains("300_")
+                            Dim bool4 As Boolean = file.ToString.ToLower.Contains("400-") Or file.ToString.ToLower.Contains("400_")
                             If bool = True Then
                             ElseIf bool1 = True Then
                             ElseIf bool2 = True Then
+                            ElseIf bool3 = True Then
+                            ElseIf bool4 = True Then
                             Else tmpfilenames.Add(file)
                             End If
 
-                            'If Not file.ToString.ToLower.Contains("000") Or Not file.ToString.ToLower.Contains("100") Or Not file.ToString.ToLower.Contains("200") Or file.ToString.ToLower.Contains("300") Then tmpfilenames.Add(file)
                         Next
                         If tmpfilenames.Count >= 1 Then
                             dblfile_release.Add(dir)
@@ -50,12 +53,13 @@ Public Class searcher
                         Next i
                     End If
 
-                    'Check for zero files(types) in Dir and exlude alphabet dirs
-                ElseIf mode = "missing" And filenames.Count = 0 And dir IsNot initial And dir.Length - initial.Length > 5 Then
+                    'Check for zero files(types) in Dir and exclude alphabet dirs
+                ElseIf mode = "missing" And filenames.Count = 0 And dir IsNot initial And (dir.Length - initial.Length >= 6) Then
                     dblfile_release.Add(dir)
                     For i = 0 To filenames.Count - 1
                         dblfile_release.Add("      --  " & filenames(i))
                     Next i
+
                     'Check for WMP Jpgs > 15KB
                 ElseIf mode = "sysjpgs" And filenames.Count >= 1 And dir IsNot initial Then
                     For Each file In filenames

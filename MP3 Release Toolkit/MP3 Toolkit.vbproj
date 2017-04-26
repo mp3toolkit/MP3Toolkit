@@ -107,6 +107,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="frm_Lists.Designer.vb">
+      <DependentUpon>frm_Lists.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Lists.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="searcher.vb" />
     <Compile Include="Net.vb" />
     <Compile Include="CRC.vb" />
@@ -148,6 +154,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frm_Lists.resx">
+      <DependentUpon>frm_Lists.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_Finder.resx">
       <DependentUpon>frm_Finder.vb</DependentUpon>
       <SubType>Designer</SubType>

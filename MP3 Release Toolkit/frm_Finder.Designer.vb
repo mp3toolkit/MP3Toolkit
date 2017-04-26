@@ -39,6 +39,7 @@ Partial Class frm_Finder
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Finder = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -54,12 +55,15 @@ Partial Class frm_Finder
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.btn_ftpdfiles = New System.Windows.Forms.Button()
         Me.btn_sysjpg = New System.Windows.Forms.Button()
-        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.Lists = New System.Windows.Forms.ToolStripLabel()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
         '
         'btn_find_renames
@@ -118,7 +122,7 @@ Partial Class frm_Finder
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(247, 193)
+        Me.ListBox1.Location = New System.Drawing.Point(245, 200)
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(984, 355)
         Me.ListBox1.TabIndex = 17
@@ -134,9 +138,9 @@ Partial Class frm_Finder
         '
         'btn_result_dir
         '
-        Me.btn_result_dir.Location = New System.Drawing.Point(12, 104)
+        Me.btn_result_dir.Location = New System.Drawing.Point(18, 87)
         Me.btn_result_dir.Name = "btn_result_dir"
-        Me.btn_result_dir.Size = New System.Drawing.Size(206, 37)
+        Me.btn_result_dir.Size = New System.Drawing.Size(158, 22)
         Me.btn_result_dir.TabIndex = 15
         Me.btn_result_dir.Text = "Select Results Folder"
         Me.btn_result_dir.UseVisualStyleBackColor = True
@@ -151,9 +155,9 @@ Partial Class frm_Finder
         '
         'btn_mp3_root_dir
         '
-        Me.btn_mp3_root_dir.Location = New System.Drawing.Point(12, 41)
+        Me.btn_mp3_root_dir.Location = New System.Drawing.Point(18, 26)
         Me.btn_mp3_root_dir.Name = "btn_mp3_root_dir"
-        Me.btn_mp3_root_dir.Size = New System.Drawing.Size(206, 37)
+        Me.btn_mp3_root_dir.Size = New System.Drawing.Size(158, 22)
         Me.btn_mp3_root_dir.TabIndex = 13
         Me.btn_mp3_root_dir.Text = "Select MP3 Root Folder"
         Me.btn_mp3_root_dir.UseVisualStyleBackColor = True
@@ -162,7 +166,7 @@ Partial Class frm_Finder
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.ToolStripMenuItem2, Me.ToolStripMenuItem3, Me.ToolStripMenuItem4})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(217, 114)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(217, 92)
         '
         'ToolStripMenuItem1
         '
@@ -185,9 +189,16 @@ Partial Class frm_Finder
         Me.ToolStripMenuItem3.Size = New System.Drawing.Size(216, 22)
         Me.ToolStripMenuItem3.Text = "Send to RekSFV"
         '
+        'ToolStripMenuItem4
+        '
+        Me.ToolStripMenuItem4.Enabled = False
+        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(216, 22)
+        Me.ToolStripMenuItem4.Text = "Delete File directly"
+        '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Finder, Me.ToolStripSeparator1, Me.Srrdb, Me.ToolStripSeparator2, Me.Fixer})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Finder, Me.ToolStripSeparator1, Me.Lists, Me.ToolStripSeparator3, Me.Srrdb, Me.ToolStripSeparator2, Me.Fixer})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(1247, 25)
@@ -262,7 +273,7 @@ Partial Class frm_Finder
         '
         Me.info_listbox.AutoSize = True
         Me.info_listbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.info_listbox.Location = New System.Drawing.Point(244, 167)
+        Me.info_listbox.Location = New System.Drawing.Point(244, 171)
         Me.info_listbox.Name = "info_listbox"
         Me.info_listbox.Size = New System.Drawing.Size(47, 13)
         Me.info_listbox.TabIndex = 30
@@ -322,18 +333,34 @@ Partial Class frm_Finder
         Me.btn_sysjpg.Text = "Find system *.jpgs"
         Me.btn_sysjpg.UseVisualStyleBackColor = True
         '
-        'ToolStripMenuItem4
+        'GroupBox4
         '
-        Me.ToolStripMenuItem4.Enabled = False
-        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(216, 22)
-        Me.ToolStripMenuItem4.Text = "Delete File directly"
+        Me.GroupBox4.Controls.Add(Me.btn_mp3_root_dir)
+        Me.GroupBox4.Controls.Add(Me.btn_result_dir)
+        Me.GroupBox4.Location = New System.Drawing.Point(19, 32)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(198, 121)
+        Me.GroupBox4.TabIndex = 34
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Directories"
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
+        '
+        'Lists
+        '
+        Me.Lists.Name = "Lists"
+        Me.Lists.Size = New System.Drawing.Size(69, 22)
+        Me.Lists.Text = "Release Lists"
         '
         'frm_Finder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1247, 562)
+        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -343,9 +370,7 @@ Partial Class frm_Finder
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.btn_result_dir)
         Me.Controls.Add(Me.mp3_root_dir)
-        Me.Controls.Add(Me.btn_mp3_root_dir)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -358,6 +383,7 @@ Partial Class frm_Finder
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox4.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -394,4 +420,7 @@ Partial Class frm_Finder
     Friend WithEvents btn_sysjpg As Button
     Friend WithEvents btn_ftpdfiles As Button
     Friend WithEvents ToolStripMenuItem4 As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
+    Friend WithEvents Lists As ToolStripLabel
+    Friend WithEvents GroupBox4 As GroupBox
 End Class

@@ -52,6 +52,8 @@ Partial Class frm_fixit
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.cb_trknum = New System.Windows.Forms.CheckBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Lists = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -157,7 +159,7 @@ Partial Class frm_fixit
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Finder, Me.ToolStripSeparator1, Me.Srrdb, Me.ToolStripSeparator2, Me.Fixer})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Finder, Me.ToolStripSeparator1, Me.Lists, Me.ToolStripSeparator3, Me.Srrdb, Me.ToolStripSeparator2, Me.Fixer})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(562, 25)
@@ -305,6 +307,17 @@ Partial Class frm_fixit
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Single *.mp3 Heuristic Fixxer"
         '
+        'Lists
+        '
+        Me.Lists.Name = "Lists"
+        Me.Lists.Size = New System.Drawing.Size(69, 22)
+        Me.Lists.Text = "Release Lists"
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
+        '
         'frm_fixit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -361,4 +374,6 @@ Partial Class frm_fixit
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents cb_trknum As CheckBox
     Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
+    Friend WithEvents Lists As ToolStripLabel
 End Class

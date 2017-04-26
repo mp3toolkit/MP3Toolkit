@@ -323,10 +323,12 @@ Nodir:
     Private Sub Finder_Click(sender As Object, e As EventArgs) Handles Finder.Click
         frm_Srrdb.Close()
         frm_fixit.Close()
+        frm_lists.Close()
     End Sub
 
     Private Sub Srrdb_Click(sender As Object, e As EventArgs) Handles Srrdb.Click
         frm_fixit.Close()
+        frm_lists.Close()
         frm_Srrdb.Location = New Point(Me.Left, Me.Top)
         frm_Srrdb.Show()
         Me.Close()
@@ -334,8 +336,16 @@ Nodir:
 
     Private Sub Fixer_Click(sender As Object, e As EventArgs) Handles Fixer.Click
         frm_Srrdb.Close()
+        frm_lists.Close()
         frm_fixit.Location = New Point(Me.Left, Me.Top)
         frm_fixit.Show()
+        Me.Close()
+    End Sub
+    Private Sub Lists_Click(sender As Object, e As EventArgs) Handles Lists.Click
+        frm_fixit.Close()
+        frm_Srrdb.Close()
+        frm_lists.Location = New Point(Me.Left, Me.Top)
+        frm_lists.Show()
         Me.Close()
     End Sub
 
@@ -403,12 +413,12 @@ Nodir:
         Vars.workdir = TextBox2.Text
         ListBox1.Items.Clear()
 
-        If System.IO.File.Exists(Vars.workdir & Convert.ToString("\systemjpgs.txt")) = True Then System.IO.File.Delete(Vars.workdir & Convert.ToString("\systemjpgs.txt"))
+        If System.IO.File.Exists(Vars.workdir & Convert.ToString("\ftpds.txt")) = True Then System.IO.File.Delete(Vars.workdir & Convert.ToString("\ftpds.txt"))
 
         Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.jpg", "missing")
 
-        If System.IO.File.Exists(Vars.workdir & Convert.ToString("\systemjpgs.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\nosfv.txt")))
-        info_listbox.Text = "Found the folllowing Releases WITH FTPD files (""raidenftpd.acl"" & ""ioftpd.zs"" :"
+        If System.IO.File.Exists(Vars.workdir & Convert.ToString("\ftpds.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\ftpds.txt")))
+        info_listbox.Text = "Found the folllowing Releases WITH FTPD files ("".acl"" & "".zs"" & "".crc"" & "".message"" :"
     End Sub
 
 
