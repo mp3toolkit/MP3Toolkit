@@ -95,7 +95,7 @@ Public Class frm_fixit
         frm_Finder.Close()
         frm_lists.Close()
     End Sub
-    Private Sub Lists_Click(sender As Object, e As EventArgs)
+    Private Sub Lists_Click(sender As Object, e As EventArgs) Handles Lists.Click
         frm_Finder.Close()
         frm_Srrdb.Close()
         frm_lists.Location = New Point(Me.Left, Me.Top)
@@ -158,11 +158,6 @@ Public Class frm_fixit
         End Using
 
     End Sub
-
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
-
-    End Sub
-
 
 End Class
 
