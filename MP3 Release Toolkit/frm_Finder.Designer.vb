@@ -43,6 +43,8 @@ Partial Class frm_Finder
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Finder = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.Lists = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.Srrdb = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Fixer = New System.Windows.Forms.ToolStripButton()
@@ -56,8 +58,6 @@ Partial Class frm_Finder
         Me.btn_ftpdfiles = New System.Windows.Forms.Button()
         Me.btn_sysjpg = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.Lists = New System.Windows.Forms.ToolStripLabel()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -87,7 +87,7 @@ Partial Class frm_Finder
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(244, 105)
+        Me.Label2.Location = New System.Drawing.Point(244, 82)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(61, 13)
         Me.Label2.TabIndex = 21
@@ -95,7 +95,7 @@ Partial Class frm_Finder
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(245, 121)
+        Me.TextBox2.Location = New System.Drawing.Point(245, 98)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.ReadOnly = True
         Me.TextBox2.Size = New System.Drawing.Size(986, 20)
@@ -122,7 +122,7 @@ Partial Class frm_Finder
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(245, 200)
+        Me.ListBox1.Location = New System.Drawing.Point(245, 163)
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(984, 355)
         Me.ListBox1.TabIndex = 17
@@ -138,7 +138,7 @@ Partial Class frm_Finder
         '
         'btn_result_dir
         '
-        Me.btn_result_dir.Location = New System.Drawing.Point(18, 87)
+        Me.btn_result_dir.Location = New System.Drawing.Point(18, 64)
         Me.btn_result_dir.Name = "btn_result_dir"
         Me.btn_result_dir.Size = New System.Drawing.Size(158, 22)
         Me.btn_result_dir.TabIndex = 15
@@ -201,7 +201,7 @@ Partial Class frm_Finder
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Finder, Me.ToolStripSeparator1, Me.Lists, Me.ToolStripSeparator3, Me.Srrdb, Me.ToolStripSeparator2, Me.Fixer})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1247, 25)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1238, 25)
         Me.ToolStrip1.TabIndex = 26
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -218,6 +218,20 @@ Partial Class frm_Finder
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'Lists
+        '
+        Me.Lists.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.Lists.Image = CType(resources.GetObject("Lists.Image"), System.Drawing.Image)
+        Me.Lists.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Lists.Name = "Lists"
+        Me.Lists.Size = New System.Drawing.Size(73, 22)
+        Me.Lists.Text = "Release Lists"
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
         '
         'Srrdb
         '
@@ -273,7 +287,7 @@ Partial Class frm_Finder
         '
         Me.info_listbox.AutoSize = True
         Me.info_listbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.info_listbox.Location = New System.Drawing.Point(244, 171)
+        Me.info_listbox.Location = New System.Drawing.Point(244, 143)
         Me.info_listbox.Name = "info_listbox"
         Me.info_listbox.Size = New System.Drawing.Size(47, 13)
         Me.info_listbox.TabIndex = 30
@@ -284,7 +298,7 @@ Partial Class frm_Finder
         Me.GroupBox1.Controls.Add(Me.btn_2x_nfo)
         Me.GroupBox1.Controls.Add(Me.btn_2x_sfv)
         Me.GroupBox1.Controls.Add(Me.btn_2x_m3u)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 193)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 156)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(206, 114)
         Me.GroupBox1.TabIndex = 31
@@ -296,7 +310,7 @@ Partial Class frm_Finder
         Me.GroupBox2.Controls.Add(Me.btn_mis_m3u)
         Me.GroupBox2.Controls.Add(Me.btn_mis_sfv)
         Me.GroupBox2.Controls.Add(Me.btn_mis_nfo)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 318)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 281)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(206, 114)
         Me.GroupBox2.TabIndex = 32
@@ -308,7 +322,7 @@ Partial Class frm_Finder
         Me.GroupBox3.Controls.Add(Me.btn_ftpdfiles)
         Me.GroupBox3.Controls.Add(Me.btn_sysjpg)
         Me.GroupBox3.Controls.Add(Me.btn_find_renames)
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 441)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 404)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(206, 114)
         Me.GroupBox3.TabIndex = 33
@@ -317,6 +331,7 @@ Partial Class frm_Finder
         '
         'btn_ftpdfiles
         '
+        Me.btn_ftpdfiles.Enabled = False
         Me.btn_ftpdfiles.Location = New System.Drawing.Point(25, 52)
         Me.btn_ftpdfiles.Name = "btn_ftpdfiles"
         Me.btn_ftpdfiles.Size = New System.Drawing.Size(158, 22)
@@ -339,27 +354,16 @@ Partial Class frm_Finder
         Me.GroupBox4.Controls.Add(Me.btn_result_dir)
         Me.GroupBox4.Location = New System.Drawing.Point(19, 32)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(198, 121)
+        Me.GroupBox4.Size = New System.Drawing.Size(198, 97)
         Me.GroupBox4.TabIndex = 34
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Directories"
-        '
-        'ToolStripSeparator3
-        '
-        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
-        '
-        'Lists
-        '
-        Me.Lists.Name = "Lists"
-        Me.Lists.Size = New System.Drawing.Size(69, 22)
-        Me.Lists.Text = "Release Lists"
         '
         'frm_Finder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1247, 562)
+        Me.ClientSize = New System.Drawing.Size(1238, 527)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -376,7 +380,7 @@ Partial Class frm_Finder
         Me.MinimizeBox = False
         Me.Name = "frm_Finder"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "MP3 Toolkit v0.04 - Finder"
+        Me.Text = "MP3 Toolkit v0.05 - Finder"
         Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
@@ -421,6 +425,6 @@ Partial Class frm_Finder
     Friend WithEvents btn_ftpdfiles As Button
     Friend WithEvents ToolStripMenuItem4 As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
-    Friend WithEvents Lists As ToolStripLabel
     Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents Lists As ToolStripButton
 End Class

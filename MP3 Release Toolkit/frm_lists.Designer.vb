@@ -26,7 +26,7 @@ Partial Class frm_lists
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Finder = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.Lists = New System.Windows.Forms.ToolStripLabel()
+        Me.Lists = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.Srrdb = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
@@ -45,9 +45,14 @@ Partial Class frm_lists
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.cb_2to1 = New System.Windows.Forms.CheckBox()
         Me.cb_1to2 = New System.Windows.Forms.CheckBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btn_createlist = New System.Windows.Forms.Button()
+        Me.txt_resultpath = New System.Windows.Forms.TextBox()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'ToolStrip1
@@ -55,7 +60,7 @@ Partial Class frm_lists
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Finder, Me.ToolStripSeparator1, Me.Lists, Me.ToolStripSeparator3, Me.Srrdb, Me.ToolStripSeparator2, Me.Fixer})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1139, 25)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1244, 25)
         Me.ToolStrip1.TabIndex = 27
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -75,8 +80,11 @@ Partial Class frm_lists
         '
         'Lists
         '
+        Me.Lists.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.Lists.Image = CType(resources.GetObject("Lists.Image"), System.Drawing.Image)
+        Me.Lists.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Lists.Name = "Lists"
-        Me.Lists.Size = New System.Drawing.Size(69, 22)
+        Me.Lists.Size = New System.Drawing.Size(73, 22)
         Me.Lists.Text = "Release Lists"
         '
         'ToolStripSeparator3
@@ -151,23 +159,23 @@ Partial Class frm_lists
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.Location = New System.Drawing.Point(228, 67)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(447, 355)
+        Me.ListBox1.Size = New System.Drawing.Size(500, 355)
         Me.ListBox1.TabIndex = 36
         '
         'ListBox2
         '
         Me.ListBox2.FormattingEnabled = True
-        Me.ListBox2.Location = New System.Drawing.Point(681, 67)
+        Me.ListBox2.Location = New System.Drawing.Point(734, 66)
         Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(447, 355)
+        Me.ListBox2.Size = New System.Drawing.Size(500, 355)
         Me.ListBox2.TabIndex = 37
         '
         'ListBox3
         '
         Me.ListBox3.FormattingEnabled = True
-        Me.ListBox3.Location = New System.Drawing.Point(228, 462)
+        Me.ListBox3.Location = New System.Drawing.Point(228, 488)
         Me.ListBox3.Name = "ListBox3"
-        Me.ListBox3.Size = New System.Drawing.Size(900, 290)
+        Me.ListBox3.Size = New System.Drawing.Size(1006, 264)
         Me.ListBox3.TabIndex = 38
         '
         'Label1
@@ -182,7 +190,7 @@ Partial Class frm_lists
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(678, 51)
+        Me.Label2.Location = New System.Drawing.Point(731, 50)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(35, 13)
         Me.Label2.TabIndex = 40
@@ -223,9 +231,9 @@ Partial Class frm_lists
         Me.cb_2to1.AutoSize = True
         Me.cb_2to1.Location = New System.Drawing.Point(17, 49)
         Me.cb_2to1.Name = "cb_2to1"
-        Me.cb_2to1.Size = New System.Drawing.Size(81, 17)
+        Me.cb_2to1.Size = New System.Drawing.Size(146, 17)
         Me.cb_2to1.TabIndex = 1
-        Me.cb_2to1.Text = "CheckBox2"
+        Me.cb_2to1.Text = "Compare List 2 with List 1"
         Me.cb_2to1.UseVisualStyleBackColor = True
         '
         'cb_1to2
@@ -233,16 +241,56 @@ Partial Class frm_lists
         Me.cb_1to2.AutoSize = True
         Me.cb_1to2.Location = New System.Drawing.Point(17, 23)
         Me.cb_1to2.Name = "cb_1to2"
-        Me.cb_1to2.Size = New System.Drawing.Size(81, 17)
+        Me.cb_1to2.Size = New System.Drawing.Size(146, 17)
         Me.cb_1to2.TabIndex = 0
-        Me.cb_1to2.Text = "CheckBox1"
+        Me.cb_1to2.Text = "Compare List 1 with List 2"
         Me.cb_1to2.UseVisualStyleBackColor = True
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Button1)
+        Me.GroupBox2.Controls.Add(Me.btn_createlist)
+        Me.GroupBox2.Location = New System.Drawing.Point(17, 266)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(192, 155)
+        Me.GroupBox2.TabIndex = 44
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Create Lists"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(13, 22)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(158, 22)
+        Me.Button1.TabIndex = 18
+        Me.Button1.Text = "Results Directory"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'btn_createlist
+        '
+        Me.btn_createlist.Location = New System.Drawing.Point(13, 50)
+        Me.btn_createlist.Name = "btn_createlist"
+        Me.btn_createlist.Size = New System.Drawing.Size(158, 22)
+        Me.btn_createlist.TabIndex = 17
+        Me.btn_createlist.Text = "Create List"
+        Me.btn_createlist.UseVisualStyleBackColor = True
+        '
+        'txt_resultpath
+        '
+        Me.txt_resultpath.BackColor = System.Drawing.SystemColors.Control
+        Me.txt_resultpath.Location = New System.Drawing.Point(228, 462)
+        Me.txt_resultpath.Name = "txt_resultpath"
+        Me.txt_resultpath.Size = New System.Drawing.Size(500, 20)
+        Me.txt_resultpath.TabIndex = 45
+        Me.txt_resultpath.Text = "Path to Results"
         '
         'frm_lists
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1139, 762)
+        Me.ClientSize = New System.Drawing.Size(1244, 762)
+        Me.Controls.Add(Me.txt_resultpath)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -258,12 +306,13 @@ Partial Class frm_lists
         Me.MinimizeBox = False
         Me.Name = "frm_lists"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "MP3 Toolkit v0.04 - Release Lists"
+        Me.Text = "MP3 Toolkit v0.05 - Release Lists"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -276,7 +325,6 @@ Partial Class frm_lists
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents Fixer As ToolStripButton
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
-    Friend WithEvents Lists As ToolStripLabel
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents btn_compare As Button
     Friend WithEvents btn_loadlist1 As Button
@@ -291,4 +339,9 @@ Partial Class frm_lists
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents cb_2to1 As CheckBox
     Friend WithEvents cb_1to2 As CheckBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents btn_createlist As Button
+    Friend WithEvents Lists As ToolStripButton
+    Friend WithEvents Button1 As Button
+    Friend WithEvents txt_resultpath As TextBox
 End Class

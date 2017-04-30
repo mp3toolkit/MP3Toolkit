@@ -18,7 +18,10 @@ Public Class frm_Finder
     End Sub
     Private Sub btn_result_dir_Click(sender As Object, e As EventArgs) Handles btn_result_dir.Click
         Using FBD As New FolderBrowserDialog
-            If FBD.ShowDialog = DialogResult.OK Then TextBox2.Text = FBD.SelectedPath
+            If FBD.ShowDialog = DialogResult.OK Then
+                TextBox2.Text = FBD.SelectedPath
+                Vars.workdir = TextBox2.Text
+            End If
         End Using
     End Sub
     Sub ForEachSubPath(StartFolder As String)
@@ -182,16 +185,18 @@ Nodir:
 
 
     Private Sub btn_mis_m3u_Click(sender As Object, e As EventArgs) Handles btn_mis_m3u.Click
+        info_listbox.Text = "Found the folllowing Releases WITHOUT an *.m3u:"
+        Dim dblfile_release As New List(Of String)
         Vars.mp3_rootdir = mp3_root_dir.Text
         Vars.workdir = TextBox2.Text
         ListBox1.Items.Clear()
 
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\nom3u.txt")) = True Then System.IO.File.Delete(Vars.workdir & Convert.ToString("\nom3u.txt"))
 
-        Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.m3u", "missing")
-
+        dblfile_release = searcher.GetFilesRecursive(mp3_root_dir.Text, "*.m3u", "missing")
+        File.AppendAllLines(Vars.workdir & Convert.ToString("\nom3u.txt"), dblfile_release)
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\nom3u.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\nom3u.txt")))
-        info_listbox.Text = "Found the folllowing Releases WITHOUT an *.m3u:"
+
 
     End Sub
 
@@ -208,26 +213,32 @@ Nodir:
     End Sub
 
     Private Sub btn_mis_sfv_Click(sender As Object, e As EventArgs) Handles btn_mis_sfv.Click
+        info_listbox.Text = "Found the folllowing Releases WITHOUT an *.sfv:"
+        Dim dblfile_release As New List(Of String)
+
         Vars.mp3_rootdir = mp3_root_dir.Text
         Vars.workdir = TextBox2.Text
         ListBox1.Items.Clear()
 
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\nosfv.txt")) = True Then System.IO.File.Delete(Vars.workdir & Convert.ToString("\nosfv.txt"))
 
-        Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.sfv", "missing")
+        dblfile_release = searcher.GetFilesRecursive(mp3_root_dir.Text, "*.sfv", "missing")
+        File.AppendAllLines(Vars.workdir & Convert.ToString("\nosfv.txt"), dblfile_release)
 
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\nosfv.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\nosfv.txt")))
-        info_listbox.Text = "Found the folllowing Releases WITHOUT an *.sfv:"
     End Sub
 
     Private Sub btn_mis_nfo_Click(sender As Object, e As EventArgs) Handles btn_mis_nfo.Click
+        Dim dblfile_release As New List(Of String)
+
         Vars.mp3_rootdir = mp3_root_dir.Text
         Vars.workdir = TextBox2.Text
         ListBox1.Items.Clear()
 
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\nonfo.txt")) = True Then System.IO.File.Delete(Vars.workdir & Convert.ToString("\nonfo.txt"))
 
-        Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.nfo", "missing")
+        dblfile_release = searcher.GetFilesRecursive(mp3_root_dir.Text, "*.nfo", "missing")
+        File.AppendAllLines(Vars.workdir & Convert.ToString("\nonfo.txt"), dblfile_release)
 
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\nonfo.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\nonfo.txt")))
         info_listbox.Text = "Found the folllowing Releases WITHOUT an *.nfo:"
@@ -341,6 +352,7 @@ Nodir:
         frm_fixit.Show()
         Me.Close()
     End Sub
+
     Private Sub Lists_Click(sender As Object, e As EventArgs) Handles Lists.Click
         frm_fixit.Close()
         frm_Srrdb.Close()
@@ -350,24 +362,32 @@ Nodir:
     End Sub
 
     Private Sub frm_Finder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TextBox2.Text = My.Application.Info.DirectoryPath
         mp3_root_dir.Text = My.Application.Info.DirectoryPath
+        If Vars.workdir = "" Then
+            TextBox2.Text = My.Application.Info.DirectoryPath
+        Else
+            TextBox2.Text = Vars.workdir
+        End If
     End Sub
 
     Private Sub btn_2x_nfo_Click(sender As Object, e As EventArgs) Handles btn_2x_nfo.Click
+        Dim dblfile_release As New List(Of String)
+        info_listbox.Text = "Found the folllowing Releases with MULTIPLE *.nfo:"
+
         Vars.mp3_rootdir = mp3_root_dir.Text
         Vars.workdir = TextBox2.Text
         ListBox1.Items.Clear()
 
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\2xnfo.txt")) = True Then System.IO.File.Delete(Vars.workdir & Convert.ToString("\2xnfo.txt"))
 
-        Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.nfo", "double")
-
+        dblfile_release = searcher.GetFilesRecursive(mp3_root_dir.Text, "*.nfo", "double")
+        File.WriteAllLines(Vars.workdir & Convert.ToString("\2xnfo.txt"), dblfile_release)
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\2xnfo.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\2xnfo.txt")))
-        info_listbox.Text = "Found the folllowing Releases with MULTIPLE *.nfo:"
     End Sub
 
     Private Sub btn_2x_sfv_Click(sender As Object, e As EventArgs) Handles btn_2x_sfv.Click
+        Dim dblfile_release As New List(Of String)
+        info_listbox.Text = "Found the folllowing Releases with MULTIPLE *.sfv:"
 
         Vars.mp3_rootdir = mp3_root_dir.Text
         Vars.workdir = TextBox2.Text
@@ -376,12 +396,13 @@ Nodir:
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\2xsfv.txt")) = True Then System.IO.File.Delete(Vars.workdir & Convert.ToString("\2xsfv.txt"))
 
         Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.sfv", "double")
-
+        File.AppendAllLines(Vars.workdir & Convert.ToString("\2xsfv.txt"), dblfile_release)
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\2xsfv.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\2xsfv.txt")))
-        info_listbox.Text = "Found the folllowing Releases with MULTIPLE *.sfv:"
     End Sub
 
     Private Sub btn_2x_m3u_Click(sender As Object, e As EventArgs) Handles btn_2x_m3u.Click
+        Dim dblfile_release As New List(Of String)
+        info_listbox.Text = "Found the folllowing Releases with MULTIPLE *.m3u:"
 
         Vars.mp3_rootdir = mp3_root_dir.Text
         Vars.workdir = TextBox2.Text
@@ -389,36 +410,39 @@ Nodir:
 
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\2xm3u.txt")) = True Then System.IO.File.Delete(Vars.workdir & Convert.ToString("\2xm3u.txt"))
 
-        Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.m3u", "double")
-
+        dblfile_release = searcher.GetFilesRecursive(mp3_root_dir.Text, "*.m3u", "double")
+        File.AppendAllLines(Vars.workdir & Convert.ToString("\2xm3u.txt"), dblfile_release)
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\2xm3u.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\2xm3u.txt")))
-        info_listbox.Text = "Found the folllowing Releases with MULTIPLE *.m3u:"
     End Sub
 
-    Private Sub btn__Click(sender As Object, e As EventArgs) Handles btn_sysjpg.Click
+    Private Sub btn_sysjpg_Click(sender As Object, e As EventArgs) Handles btn_sysjpg.Click
+        Dim dblfile_release As New List(Of String)
+        info_listbox.Text = "Found the folllowing Releases WITH Windows *.jpgs ( ""Folder.jpg"" & ""AlbumArtSmall.jpg"") :"
+
         Vars.mp3_rootdir = mp3_root_dir.Text
         Vars.workdir = TextBox2.Text
         ListBox1.Items.Clear()
 
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\systemjpgs.txt")) = True Then System.IO.File.Delete(Vars.workdir & Convert.ToString("\systemjpgs.txt"))
 
-        Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.jpg", "sysjpgs")
-
+        dblfile_release = searcher.GetFilesRecursive(mp3_root_dir.Text, "*.jpg", "sysjpgs")
+        File.AppendAllLines(Vars.workdir & Convert.ToString("\systemjpgs.txt"), dblfile_release)
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\systemjpgs.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\systemjpgs.txt")))
-        info_listbox.Text = "Found the folllowing Releases WITH Windows *.jpgs ( ""Folder.jpg"" & ""AlbumArtSmall.jpg"") :"
     End Sub
 
     Private Sub btn_ftpdfiles_Click(sender As Object, e As EventArgs) Handles btn_ftpdfiles.Click
+        Dim dblfile_release As New List(Of String)
+        info_listbox.Text = "Found the folllowing Releases WITH FTPD files ("".acl"" & "".zs"" & "".crc"" & "".message"" :"
+
         Vars.mp3_rootdir = mp3_root_dir.Text
         Vars.workdir = TextBox2.Text
         ListBox1.Items.Clear()
 
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\ftpds.txt")) = True Then System.IO.File.Delete(Vars.workdir & Convert.ToString("\ftpds.txt"))
 
-        Call searcher.GetFilesRecursive(mp3_root_dir.Text, "*.jpg", "missing")
+        dblfile_release = searcher.GetFilesRecursive(mp3_root_dir.Text, "*.jpg", "missing")
 
         If System.IO.File.Exists(Vars.workdir & Convert.ToString("\ftpds.txt")) = True Then ListBox1.Items.AddRange(IO.File.ReadAllLines(Vars.workdir & Convert.ToString("\ftpds.txt")))
-        info_listbox.Text = "Found the folllowing Releases WITH FTPD files ("".acl"" & "".zs"" & "".crc"" & "".message"" :"
     End Sub
 
 

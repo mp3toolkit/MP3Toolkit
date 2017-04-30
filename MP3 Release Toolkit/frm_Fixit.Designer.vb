@@ -39,6 +39,8 @@ Partial Class frm_fixit
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Finder = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.Lists = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.Srrdb = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Fixer = New System.Windows.Forms.ToolStripButton()
@@ -52,8 +54,6 @@ Partial Class frm_fixit
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.cb_trknum = New System.Windows.Forms.CheckBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Lists = New System.Windows.Forms.ToolStripLabel()
-        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -179,6 +179,20 @@ Partial Class frm_fixit
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'Lists
+        '
+        Me.Lists.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.Lists.Image = CType(resources.GetObject("Lists.Image"), System.Drawing.Image)
+        Me.Lists.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Lists.Name = "Lists"
+        Me.Lists.Size = New System.Drawing.Size(73, 22)
+        Me.Lists.Text = "Release Lists"
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
         '
         'Srrdb
         '
@@ -307,17 +321,6 @@ Partial Class frm_fixit
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Single *.mp3 Heuristic Fixxer"
         '
-        'Lists
-        '
-        Me.Lists.Name = "Lists"
-        Me.Lists.Size = New System.Drawing.Size(69, 22)
-        Me.Lists.Text = "Release Lists"
-        '
-        'ToolStripSeparator3
-        '
-        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
-        '
         'frm_fixit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -332,7 +335,7 @@ Partial Class frm_fixit
         Me.MinimizeBox = False
         Me.Name = "frm_fixit"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "MP3 Toolkit v0.04 - Fixer"
+        Me.Text = "MP3 Toolkit v0.05 - Fixer"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -375,5 +378,5 @@ Partial Class frm_fixit
     Friend WithEvents cb_trknum As CheckBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
-    Friend WithEvents Lists As ToolStripLabel
+    Friend WithEvents Lists As ToolStripButton
 End Class

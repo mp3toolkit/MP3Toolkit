@@ -29,13 +29,13 @@ Partial Class frm_Srrdb
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Finder = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.Lists = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.Srrdb = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Fixer = New System.Windows.Forms.ToolStripButton()
         Me.cb_Logwget = New System.Windows.Forms.CheckBox()
         Me.cb_logretag = New System.Windows.Forms.CheckBox()
-        Me.Lists = New System.Windows.Forms.ToolStripLabel()
-        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         btn_fixit = New System.Windows.Forms.Button()
@@ -94,6 +94,20 @@ Partial Class frm_Srrdb
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
         '
+        'Lists
+        '
+        Me.Lists.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.Lists.Image = CType(resources.GetObject("Lists.Image"), System.Drawing.Image)
+        Me.Lists.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Lists.Name = "Lists"
+        Me.Lists.Size = New System.Drawing.Size(73, 22)
+        Me.Lists.Text = "Release Lists"
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
+        '
         'Srrdb
         '
         Me.Srrdb.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
@@ -137,17 +151,6 @@ Partial Class frm_Srrdb
         Me.cb_logretag.Text = "Log ReTag"
         Me.cb_logretag.UseVisualStyleBackColor = True
         '
-        'Lists
-        '
-        Me.Lists.Name = "Lists"
-        Me.Lists.Size = New System.Drawing.Size(69, 22)
-        Me.Lists.Text = "Release Lists"
-        '
-        'ToolStripSeparator3
-        '
-        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
-        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.cb_Logwget)
@@ -184,7 +187,7 @@ Partial Class frm_Srrdb
         Me.MinimizeBox = False
         Me.Name = "frm_Srrdb"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "MP3 Toolkit v0.04 - SRRDB"
+        Me.Text = "MP3 Toolkit v0.05 - SRRDB"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -206,7 +209,7 @@ Partial Class frm_Srrdb
     Friend WithEvents cb_Logwget As CheckBox
     Friend WithEvents cb_logretag As CheckBox
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
-    Friend WithEvents Lists As ToolStripLabel
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents Lists As ToolStripButton
 End Class
