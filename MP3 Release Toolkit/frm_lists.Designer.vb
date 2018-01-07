@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frm_lists
     Inherits System.Windows.Forms.Form
 
     'Das Formular überschreibt den Löschvorgang, um die Komponentenliste zu bereinigen.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frm_lists
     'Hinweis: Die folgende Prozedur ist für den Windows Form-Designer erforderlich.
     'Das Bearbeiten ist mit dem Windows Form-Designer möglich.  
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_lists))
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
@@ -48,7 +48,6 @@ Partial Class frm_lists
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btn_createlist = New System.Windows.Forms.Button()
-        Me.txt_resultpath = New System.Windows.Forms.TextBox()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -157,31 +156,31 @@ Partial Class frm_lists
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(228, 67)
+        Me.ListBox1.Location = New System.Drawing.Point(228, 54)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(500, 355)
+        Me.ListBox1.Size = New System.Drawing.Size(500, 368)
         Me.ListBox1.TabIndex = 36
         '
         'ListBox2
         '
         Me.ListBox2.FormattingEnabled = True
-        Me.ListBox2.Location = New System.Drawing.Point(734, 66)
+        Me.ListBox2.Location = New System.Drawing.Point(734, 54)
         Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(500, 355)
+        Me.ListBox2.Size = New System.Drawing.Size(500, 368)
         Me.ListBox2.TabIndex = 37
         '
         'ListBox3
         '
         Me.ListBox3.FormattingEnabled = True
-        Me.ListBox3.Location = New System.Drawing.Point(228, 488)
+        Me.ListBox3.Location = New System.Drawing.Point(228, 449)
         Me.ListBox3.Name = "ListBox3"
-        Me.ListBox3.Size = New System.Drawing.Size(1006, 264)
+        Me.ListBox3.Size = New System.Drawing.Size(1006, 303)
         Me.ListBox3.TabIndex = 38
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(225, 51)
+        Me.Label1.Location = New System.Drawing.Point(225, 41)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(35, 13)
         Me.Label1.TabIndex = 39
@@ -190,7 +189,7 @@ Partial Class frm_lists
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(731, 50)
+        Me.Label2.Location = New System.Drawing.Point(731, 41)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(35, 13)
         Me.Label2.TabIndex = 40
@@ -200,7 +199,7 @@ Partial Class frm_lists
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(225, 446)
+        Me.Label3.Location = New System.Drawing.Point(225, 435)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(53, 13)
         Me.Label3.TabIndex = 41
@@ -252,44 +251,35 @@ Partial Class frm_lists
         Me.GroupBox2.Controls.Add(Me.btn_createlist)
         Me.GroupBox2.Location = New System.Drawing.Point(17, 266)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(192, 155)
+        Me.GroupBox2.Size = New System.Drawing.Size(192, 85)
         Me.GroupBox2.TabIndex = 44
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Create Lists"
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(13, 22)
+        Me.Button1.Location = New System.Drawing.Point(13, 47)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(158, 22)
         Me.Button1.TabIndex = 18
         Me.Button1.Text = "Results Directory"
         Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
         '
         'btn_createlist
         '
-        Me.btn_createlist.Location = New System.Drawing.Point(13, 50)
+        Me.btn_createlist.Location = New System.Drawing.Point(13, 19)
         Me.btn_createlist.Name = "btn_createlist"
         Me.btn_createlist.Size = New System.Drawing.Size(158, 22)
         Me.btn_createlist.TabIndex = 17
         Me.btn_createlist.Text = "Create List"
         Me.btn_createlist.UseVisualStyleBackColor = True
         '
-        'txt_resultpath
-        '
-        Me.txt_resultpath.BackColor = System.Drawing.SystemColors.Control
-        Me.txt_resultpath.Location = New System.Drawing.Point(228, 462)
-        Me.txt_resultpath.Name = "txt_resultpath"
-        Me.txt_resultpath.Size = New System.Drawing.Size(500, 20)
-        Me.txt_resultpath.TabIndex = 45
-        Me.txt_resultpath.Text = "Path to Results"
-        '
         'frm_lists
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1244, 762)
-        Me.Controls.Add(Me.txt_resultpath)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label4)
@@ -306,7 +296,7 @@ Partial Class frm_lists
         Me.MinimizeBox = False
         Me.Name = "frm_lists"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "MP3 Toolkit v0.05 - Release Lists"
+        Me.Text = "MP3 Toolkit v0.06 - Release Lists"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
@@ -343,5 +333,4 @@ Partial Class frm_lists
     Friend WithEvents btn_createlist As Button
     Friend WithEvents Lists As ToolStripButton
     Friend WithEvents Button1 As Button
-    Friend WithEvents txt_resultpath As TextBox
 End Class

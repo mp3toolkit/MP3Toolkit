@@ -1,4 +1,5 @@
-﻿Public Class frm_Srrdb
+﻿Imports System.IO
+Public Class frm_Srrdb
     Private Sub Srrdb_Load(sender As Object, e As EventArgs) Handles MyBase.Load
     End Sub
 
@@ -7,7 +8,7 @@
             OFD.Filter = "txt Files|*.txt"
             OFD.Title = "Select a txt List File"
             If OFD.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
-                ListBox1.Items.AddRange(IO.File.ReadAllLines(OFD.FileName))
+                ListBox1.Items.AddRange(File.ReadAllLines(OFD.FileName))
             End If
         End Using
     End Sub

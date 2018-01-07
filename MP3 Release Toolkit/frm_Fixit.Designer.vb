@@ -335,7 +335,7 @@ Partial Class frm_fixit
         Me.MinimizeBox = False
         Me.Name = "frm_fixit"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "MP3 Toolkit v0.05 - Fixer"
+        Me.Text = "MP3 Toolkit v0.06 - Fixer"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)

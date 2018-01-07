@@ -26,14 +26,10 @@ Partial Class frm_Finder
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_Finder))
         Me.btn_find_renames = New System.Windows.Forms.Button()
         Me.btn_mis_nfo = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.btn_mis_sfv = New System.Windows.Forms.Button()
         Me.btn_mis_m3u = New System.Windows.Forms.Button()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.btn_result_dir = New System.Windows.Forms.Button()
-        Me.mp3_root_dir = New System.Windows.Forms.TextBox()
         Me.btn_mp3_root_dir = New System.Windows.Forms.Button()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -58,12 +54,16 @@ Partial Class frm_Finder
         Me.btn_ftpdfiles = New System.Windows.Forms.Button()
         Me.btn_sysjpg = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.workdir = New System.Windows.Forms.TextBox()
+        Me.mp3_root_dir = New System.Windows.Forms.TextBox()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
         Me.SuspendLayout()
         '
         'btn_find_renames
@@ -83,23 +83,6 @@ Partial Class frm_Finder
         Me.btn_mis_nfo.TabIndex = 22
         Me.btn_mis_nfo.Text = "Find missing *.nfo"
         Me.btn_mis_nfo.UseVisualStyleBackColor = True
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(244, 82)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(61, 13)
-        Me.Label2.TabIndex = 21
-        Me.Label2.Text = "Results Dir:"
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(245, 98)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(986, 20)
-        Me.TextBox2.TabIndex = 20
         '
         'btn_mis_sfv
         '
@@ -127,35 +110,18 @@ Partial Class frm_Finder
         Me.ListBox1.Size = New System.Drawing.Size(984, 355)
         Me.ListBox1.TabIndex = 17
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(244, 42)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(74, 13)
-        Me.Label1.TabIndex = 16
-        Me.Label1.Text = "MP3 Root Dir:"
-        '
         'btn_result_dir
         '
-        Me.btn_result_dir.Location = New System.Drawing.Point(18, 64)
+        Me.btn_result_dir.Location = New System.Drawing.Point(18, 50)
         Me.btn_result_dir.Name = "btn_result_dir"
         Me.btn_result_dir.Size = New System.Drawing.Size(158, 22)
         Me.btn_result_dir.TabIndex = 15
         Me.btn_result_dir.Text = "Select Results Folder"
         Me.btn_result_dir.UseVisualStyleBackColor = True
         '
-        'mp3_root_dir
-        '
-        Me.mp3_root_dir.Location = New System.Drawing.Point(245, 58)
-        Me.mp3_root_dir.Name = "mp3_root_dir"
-        Me.mp3_root_dir.ReadOnly = True
-        Me.mp3_root_dir.Size = New System.Drawing.Size(986, 20)
-        Me.mp3_root_dir.TabIndex = 14
-        '
         'btn_mp3_root_dir
         '
-        Me.btn_mp3_root_dir.Location = New System.Drawing.Point(18, 26)
+        Me.btn_mp3_root_dir.Location = New System.Drawing.Point(18, 19)
         Me.btn_mp3_root_dir.Name = "btn_mp3_root_dir"
         Me.btn_mp3_root_dir.Size = New System.Drawing.Size(158, 22)
         Me.btn_mp3_root_dir.TabIndex = 13
@@ -354,33 +320,57 @@ Partial Class frm_Finder
         Me.GroupBox4.Controls.Add(Me.btn_result_dir)
         Me.GroupBox4.Location = New System.Drawing.Point(19, 32)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(198, 97)
+        Me.GroupBox4.Size = New System.Drawing.Size(198, 87)
         Me.GroupBox4.TabIndex = 34
         Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Directories"
+        Me.GroupBox4.Text = "Directories (Global Setting)"
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.workdir)
+        Me.GroupBox5.Controls.Add(Me.mp3_root_dir)
+        Me.GroupBox5.Location = New System.Drawing.Point(240, 32)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(988, 87)
+        Me.GroupBox5.TabIndex = 35
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Select Path on the left"
+        '
+        'workdir
+        '
+        Me.workdir.Location = New System.Drawing.Point(7, 52)
+        Me.workdir.Name = "workdir"
+        Me.workdir.ReadOnly = True
+        Me.workdir.Size = New System.Drawing.Size(975, 20)
+        Me.workdir.TabIndex = 24
+        '
+        'mp3_root_dir
+        '
+        Me.mp3_root_dir.Location = New System.Drawing.Point(7, 19)
+        Me.mp3_root_dir.Name = "mp3_root_dir"
+        Me.mp3_root_dir.ReadOnly = True
+        Me.mp3_root_dir.Size = New System.Drawing.Size(975, 20)
+        Me.mp3_root_dir.TabIndex = 22
         '
         'frm_Finder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1238, 527)
+        Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.info_listbox)
         Me.Controls.Add(Me.ToolStrip1)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.ListBox1)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.mp3_root_dir)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frm_Finder"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "MP3 Toolkit v0.05 - Finder"
+        Me.Text = "MP3 Toolkit v0.06 - Finder"
         Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
@@ -388,6 +378,8 @@ Partial Class frm_Finder
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -395,14 +387,10 @@ Partial Class frm_Finder
 
     Friend WithEvents btn_find_renames As Button
     Friend WithEvents btn_mis_nfo As Button
-    Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents btn_mis_sfv As Button
     Friend WithEvents btn_mis_m3u As Button
     Friend WithEvents ListBox1 As ListBox
-    Friend WithEvents Label1 As Label
     Friend WithEvents btn_result_dir As Button
-    Friend WithEvents mp3_root_dir As TextBox
     Friend WithEvents btn_mp3_root_dir As Button
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
@@ -427,4 +415,7 @@ Partial Class frm_Finder
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents Lists As ToolStripButton
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents workdir As TextBox
+    Friend WithEvents mp3_root_dir As TextBox
 End Class

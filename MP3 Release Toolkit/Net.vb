@@ -1,15 +1,16 @@
-﻿Public Class Net
+﻿Imports System.IO
+Public Class Net
     Public Shared Function Getnrun_srr(i As String)
 
-        Dim FolderName = New System.IO.DirectoryInfo(i).Name
+        Dim FolderName = New DirectoryInfo(i).Name
         Threading.Thread.Sleep(3000)
         Dim p As New Process()
         Dim workdir As String = My.Application.Info.DirectoryPath & "\wget.exe"
-        System.IO.File.WriteAllBytes(My.Application.Info.DirectoryPath & "\wget.exe", My.Resources.wget)
-        System.IO.File.WriteAllBytes(My.Application.Info.DirectoryPath & "\libintl3.dll", My.Resources.libintl3)
-        System.IO.File.WriteAllBytes(My.Application.Info.DirectoryPath & "\libiconv2.dll", My.Resources.libiconv2)
-        System.IO.File.WriteAllBytes(My.Application.Info.DirectoryPath & "\libeay32.dll", My.Resources.libeay32)
-        System.IO.File.WriteAllBytes(My.Application.Info.DirectoryPath & "\libssl32.dll", My.Resources.libssl32)
+        File.WriteAllBytes(My.Application.Info.DirectoryPath & "\wget.exe", My.Resources.wget)
+        File.WriteAllBytes(My.Application.Info.DirectoryPath & "\libintl3.dll", My.Resources.libintl3)
+        File.WriteAllBytes(My.Application.Info.DirectoryPath & "\libiconv2.dll", My.Resources.libiconv2)
+        File.WriteAllBytes(My.Application.Info.DirectoryPath & "\libeay32.dll", My.Resources.libeay32)
+        File.WriteAllBytes(My.Application.Info.DirectoryPath & "\libssl32.dll", My.Resources.libssl32)
         p.StartInfo.FileName = workdir
         Dim cmdline2 As String = "--no-check-certificate https://www.srrdb.com/download/srr/" & FolderName & "/" & FolderName & ".srr"
 
